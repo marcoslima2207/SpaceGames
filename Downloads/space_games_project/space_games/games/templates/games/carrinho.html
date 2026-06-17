@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+{% block title %}Carrinho — Space_Games{% endblock %}
+
+{% block extra_css %}
+<style>
+  .cart-item {
+    background: var(--sg-surface);
+    border: 1px solid var(--sg-border);
+    border-radius: 12px;
+    padding: 1rem;
+    transition: border-color .2s;
+  }
+  .cart-item:hover { border-color: var(--sg-accent); }
+  .cart-item img {
+    width: 80px; height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  .total-box {
+    background: var(--sg-surface);
+    border: 1px solid var(--sg-border);
+    border-radius: 16px;
+    padding: 1.5rem;
+    position: sticky;
+    top: 80px;
+  }
+  .total-price {
+    font-family: var(--font-brand);
+    font-size: 2rem;
+    color: var(--sg-accent);
+    font-weight: 900;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+  <h1 class="section-title mb-4">
+    <i class="bi bi-cart3 me-2 text-accent"></i>Carrinho de Compras
+  </h1>
+
+  {% if itens %}
+  <div class="row g-4">
+
+    <!-- Itens -->
+    <div class="col-lg-8">
+      <div class="d-flex flex-column gap-3">
+        {% for item in itens %}
+        <div class="cart-item d-flex align-items-center gap-3">
+          <a href="{% url 'detalhe_jogo' item.jogo.id %}">
+            <img src="{{ item.jogo.get_imagem_url }}"
+                 alt="{{ item.jogo.titulo }}"
+                 onerror="this.src='https://via.placeholder.com/80x80/0d1b2a/00d4ff?text=🎮'">
+          </a>
+          <div class="flex-grow-1">
+            <h6 class="mb-1" style="font-family:var(--font-brand); font-size:.85rem;">
+              <a href="{% url 'detalhe_jogo' item.jogo.id %}" class="text-decoration-none"
+                 style="color:var(--sg-text);">{{ item.jogo.titulo }}</a>
+            </h6>
+            {% if item.jogo.categoria %}
+            <small class="text-muted">{{ item.jogo.categoria.icone }} {{ item.jogo.categoria.nome }}</small>
+            {% endif %}
+          </div>
+          <div class="text-end">
+            <div class="badge-price mb-2">R$ {{ item.jogo.preco }}</div>
+            <div>
+              <form method="post" action="{% url 'remover_carrinho' item.id %}" class="d-inline">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-sm"
+                        style="background:rgba(255,107,53,.15); border:1px solid rgba(255,107,53,.4);
+                               color:var(--sg-accent3); padding:3px 8px; font-size:.75rem;">
+                  <i class="bi bi-trash me-1"></i>Remover
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- Resumo -->
+    <div class="col-lg-4">
+      <div class="total-box">
+        <h5 class="fw-bold mb-3" style="font-family:var(--font-brand);">Resumo do Pedido</h5>
+
+        {% for item in itens %}
+        <div class="d-flex justify-content-between mb-2" style="font-size:.85rem;">
+          <span class="text-muted text-truncate me-2" style="max-width:180px;">
+            {{ item.jogo.titulo }}
+          </span>
+          <span>R$ {{ item.jogo.preco }}</span>
+        </div>
+        {% endfor %}
+
+        <hr style="border-color:var(--sg-border);">
+
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <span class="fw-semibold">Total</span>
+          <div class="total-price">R$ {{ total }}</div>
+        </div>
+
+        <form method="post" action="{% url 'finalizar_compra' %}">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-sg w-100 py-2 mb-2">
+            <i class="bi bi-bag-check me-2"></i>Finalizar Compra
+          </button>
+        </form>
+
+        <a href="{% url 'home' %}" class="btn btn-sg-outline w-100 py-2">
+          <i class="bi bi-arrow-left me-2"></i>Continuar Comprando
+        </a>
+
+        <small class="text-muted d-block text-center mt-3" style="font-size:.75rem;">
+          🔒 Compra segura · Os jogos serão adicionados à sua biblioteca
+        </small>
+      </div>
+    </div>
+
+  </div>
+
+  {% else %}
+  <div class="text-center py-5">
+    <div style="font-size:4rem; opacity:.3; margin-bottom:1rem;">🛒</div>
+    <h4 class="text-muted">Carrinho vazio</h4>
+    <p class="text-muted">Adicione jogos ao carrinho para vê-los aqui.</p>
+    <a href="{% url 'home' %}" class="btn btn-sg px-4 mt-2">
+      <i class="bi bi-rocket-takeoff me-2"></i>Explorar Jogos
+    </a>
+  </div>
+  {% endif %}
+
+</div>
+{% endblock %}

@@ -1,0 +1,47 @@
+[
+  {"model": "games.categoria", "pk": 1, "fields": {"nome": "Ação", "icone": "⚔️", "slug": "acao"}},
+  {"model": "games.categoria", "pk": 2, "fields": {"nome": "RPG", "icone": "🧙", "slug": "rpg"}},
+  {"model": "games.categoria", "pk": 3, "fields": {"nome": "Estratégia", "icone": "🏰", "slug": "estrategia"}},
+  {"model": "games.categoria", "pk": 4, "fields": {"nome": "Esportes", "icone": "⚽", "slug": "esportes"}},
+  {"model": "games.categoria", "pk": 5, "fields": {"nome": "Aventura", "icone": "🗺️", "slug": "aventura"}},
+  {"model": "games.categoria", "pk": 6, "fields": {"nome": "Terror", "icone": "👻", "slug": "terror"}},
+  {"model": "games.categoria", "pk": 7, "fields": {"nome": "Corrida", "icone": "🏎️", "slug": "corrida"}},
+  {"model": "games.categoria", "pk": 8, "fields": {"nome": "Simulação", "icone": "🏗️", "slug": "simulacao"}},
+
+  {"model": "games.jogo", "pk": 1, "fields": {
+    "titulo": "Galaxy Warriors", "descricao": "Batalhas épicas no espaço sideral. Enfrente hordas de alienígenas em combate frenético com armas futuristas e poderes especiais.", "preco": "59.90", "gratuito": false, "destaque": true, "imagem": "", "imagem_url": "https://via.placeholder.com/400x220/050a14/00d4ff?text=Galaxy+Warriors", "categoria_id": 1, "desenvolvedor": "NebulaSoft", "ano_lancamento": 2024, "avaliacao": "4.8"
+  }},
+  {"model": "games.jogo", "pk": 2, "fields": {
+    "titulo": "Legends of Aether", "descricao": "Um RPG de fantasia épica com mundo aberto imenso, centenas de missões e um sistema de magia profundo. Construa seu herói do zero.", "preco": "79.90", "gratuito": false, "destaque": true, "imagem": "", "imagem_url": "https://via.placeholder.com/400x220/0d1b2a/7b2fff?text=Legends+of+Aether", "categoria_id": 2, "desenvolvedor": "AetherGames", "ano_lancamento": 2024, "avaliacao": "4.9"
+  }},
+  {"model": "games.jogo", "pk": 3, "fields": {
+    "titulo": "Stellar Odyssey", "descricao": "Explore galáxias distantes, construa sua frota e conquiste sistemas estelares. O universo é seu para dominar.", "preco": "0.00", "gratuito": true, "destaque": true, "imagem": "", "imagem_url": "https://via.placeholder.com/400x220/0a1628/00d4ff?text=Stellar+Odyssey", "categoria_id": 3, "desenvolvedor": "CosmicDevs", "ano_lancamento": 2023, "avaliacao": "4.5"
+  }},
+  {"model": "games.jogo", "pk": 4, "fields": {
+    "titulo": "Turbo Racers X", "descricao": "Corridas de alta velocidade em pistas futuristas. Customize seu veículo e domine o circuito mundial.", "preco": "39.90", "gratuito": false, "destaque": false, "imagem": "", "imagem_url": "https://via.placeholder.com/400x220/14070a/ff6b35?text=Turbo+Racers+X", "categoria_id": 7, "desenvolvedor": "VelocityStudio", "ano_lancamento": 2024, "avaliacao": "4.2"
+  }},
+  {"model": "games.jogo", "pk": 5, "fields": {
+    "titulo": "Dark Abyss", "descricao": "Sobreviva nas profundezas de uma masmorra assombrada. Cada corrida é única, cada morte te ensina algo novo.", "preco": "29.90", "gratuito": false, "destaque": false, "imagem": "", "imagem_url": "https://via.placeholder.com/400x220/0a0014/c4b5fd?text=Dark+Abyss", "categoria_id": 6, "desenvolvedor": "ShadowCode", "ano_lancamento": 2023, "avaliacao": "4.6"
+  }},
+  {"model": "games.jogo", "pk": 6, "fields": {
+    "titulo": "City Builder Pro", "descricao": "Construa e gerencie a metrópole dos seus sonhos. Controle infraestrutura, economia e o bem-estar de milhões de cidadãos.", "preco": "0.00", "gratuito": true, "destaque": false, "imagem": "", "imagem_url": "https://via.placeholder.com/400x220/0f1f0f/00e676?text=City+Builder+Pro", "categoria_id": 8, "desenvolvedor": "UrbanPixels", "ano_lancamento": 2024, "avaliacao": "4.3"
+  }},
+  {"model": "games.jogo", "pk": 7, "fields": {
+    "titulo": "Champions League 25", "descricao": "O simulador de futebol mais realista do mundo. Gerencie seu time dos sonhos ou jogue nas maiores ligas do planeta.", "preco": "49.90", "gratuito": false, "destaque": true, "imagem": "", "imagem_url": "https://via.placeholder.com/400x220/0a1a0a/00e676?text=Champions+League+25", "categoria_id": 4, "desenvolvedor": "GoalSport", "ano_lancamento": 2025, "avaliacao": "4.7"
+  }},
+  {"model": "games.jogo", "pk": 8, "fields": {
+    "titulo": "Lost Jungle", "descricao": "Aventura de exploração em uma selva misteriosa repleta de segredos, ruínas antigas e criaturas perigosas.", "preco": "0.00", "gratuito": true, "destaque": false, "imagem": "", "imagem_url": "https://via.placeholder.com/400x220/0f1a0a/a3e635?text=Lost+Jungle", "categoria_id": 5, "desenvolvedor": "WildPath Games", "ano_lancamento": 2023, "avaliacao": "4.0"
+  }},
+  {"model": "games.jogo", "pk": 9, "fields": {
+    "titulo": "Phantom Strike", "descricao": "FPS de ação intensa com modos multiplayer competitivos e campanha solo emocionante. Mire, atire, vença.", "preco": "69.90", "gratuito": false, "destaque": true, "imagem": "", "imagem_url": "https://via.placeholder.com/400x220/140000/ff6b35?text=Phantom+Strike", "categoria_id": 1, "desenvolvedor": "ApexForge", "ano_lancamento": 2025, "avaliacao": "4.5"
+  }},
+  {"model": "games.jogo", "pk": 10, "fields": {
+    "titulo": "Neon Riders", "descricao": "Corridas em neon no submundo cyberpunk. Vença rachas ilegais e construa sua reputação nas ruas da cidade.", "preco": "0.00", "gratuito": true, "destaque": false, "imagem": "", "imagem_url": "https://via.placeholder.com/400x220/050014/00d4ff?text=Neon+Riders", "categoria_id": 7, "desenvolvedor": "CyberWheel", "ano_lancamento": 2024, "avaliacao": "4.1"
+  }},
+  {"model": "games.jogo", "pk": 11, "fields": {
+    "titulo": "Kingdoms & Empires", "descricao": "Grande jogo de estratégia em tempo real. Construa um império do zero, forje alianças e conquiste o mundo medieval.", "preco": "44.90", "gratuito": false, "destaque": false, "imagem": "", "imagem_url": "https://via.placeholder.com/400x220/1a0f00/ffd700?text=Kingdoms+%26+Empires", "categoria_id": 3, "desenvolvedor": "IronCrown Studios", "ano_lancamento": 2024, "avaliacao": "4.4"
+  }},
+  {"model": "games.jogo", "pk": 12, "fields": {
+    "titulo": "Pixel Farm", "descricao": "Cultive sua fazenda, cuide dos animais e construa a propriedade dos seus sonhos neste relaxante simulador agrícola.", "preco": "0.00", "gratuito": true, "destaque": false, "imagem": "", "imagem_url": "https://via.placeholder.com/400x220/0f1f00/a3e635?text=Pixel+Farm", "categoria_id": 8, "desenvolvedor": "GreenByte", "ano_lancamento": 2023, "avaliacao": "4.2"
+  }}
+]

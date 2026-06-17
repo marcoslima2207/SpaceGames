@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% block title %}Cadastro — Space_Games{% endblock %}
+
+{% block extra_css %}
+<style>
+  .auth-card {
+    background: var(--sg-surface);
+    border: 1px solid var(--sg-border);
+    border-radius: 20px;
+    padding: 2.5rem;
+    max-width: 480px;
+    margin: 50px auto;
+    box-shadow: 0 30px 80px rgba(0,0,0,.4);
+  }
+  .auth-title {
+    font-family: var(--font-brand);
+    font-size: 1.8rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, #fff, var(--sg-accent2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .form-control {
+    background: var(--sg-surface2);
+    border-color: var(--sg-border);
+    color: var(--sg-text);
+    border-radius: 10px;
+    padding: .75rem 1rem;
+  }
+  .form-control:focus {
+    background: var(--sg-surface2);
+    border-color: var(--sg-accent2);
+    color: var(--sg-text);
+    box-shadow: 0 0 0 3px rgba(123,47,255,.15);
+  }
+  .form-label { color: var(--sg-muted); font-size: .85rem; font-weight: 600; }
+  .form-text { color: var(--sg-muted); font-size: .75rem; }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="auth-card">
+    <div class="text-center mb-4">
+      <div style="font-size:2.5rem; margin-bottom:.5rem;">🎮</div>
+      <h1 class="auth-title">Criar Conta</h1>
+      <p class="text-muted">Junte-se à galáxia Space_Games</p>
+    </div>
+
+    <form method="post" novalidate>
+      {% csrf_token %}
+
+      {% for field in form %}
+      <div class="mb-3">
+        <label class="form-label" for="{{ field.id_for_label }}">
+          {% if field.name == 'username' %}<i class="bi bi-at me-1"></i>
+          {% elif field.name == 'email' %}<i class="bi bi-envelope me-1"></i>
+          {% elif field.name == 'first_name' %}<i class="bi bi-person me-1"></i>
+          {% else %}<i class="bi bi-lock me-1"></i>
+          {% endif %}
+          {{ field.label }}
+        </label>
+        <input type="{% if 'password' in field.name %}password{% elif field.name == 'email' %}email{% else %}text{% endif %}"
+               class="form-control {% if field.errors %}is-invalid{% endif %}"
+               id="{{ field.id_for_label }}"
+               name="{{ field.html_name }}"
+               value="{{ field.value|default:'' }}"
+               placeholder="{{ field.label }}"
+               {% if field.name == 'username' %}autofocus{% endif %}>
+        {% if field.help_text %}
+          <div class="form-text">{{ field.help_text }}</div>
+        {% endif %}
+        {% for error in field.errors %}
+          <div class="invalid-feedback d-block">{{ error }}</div>
+        {% endfor %}
+      </div>
+      {% endfor %}
+
+      <button type="submit" class="btn btn-sg w-100 py-2 mb-3 mt-2">
+        <i class="bi bi-rocket-takeoff me-2"></i>Criar Conta
+      </button>
+    </form>
+
+    <hr style="border-color:var(--sg-border);">
+    <p class="text-center text-muted mb-0">
+      Já tem uma conta?
+      <a href="{% url 'login' %}" class="text-accent fw-semibold">Entrar</a>
+    </p>
+  </div>
+</div>
+{% endblock %}

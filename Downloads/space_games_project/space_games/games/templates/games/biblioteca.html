@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% block title %}Minha Biblioteca — Space_Games{% endblock %}
+
+{% block extra_css %}
+<style>
+  .bib-card {
+    background: var(--sg-surface);
+    border: 1px solid var(--sg-border);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform .2s, border-color .2s;
+  }
+  .bib-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--sg-accent);
+  }
+  .bib-card img {
+    width: 100%; height: 160px; object-fit: cover;
+  }
+  .bib-badge {
+    background: rgba(0,230,118,.15);
+    color: var(--sg-success);
+    border: 1px solid rgba(0,230,118,.3);
+    border-radius: 6px;
+    padding: 2px 8px;
+    font-size: .7rem;
+    font-weight: 700;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+
+  <div class="d-flex align-items-center justify-content-between mb-4">
+    <div>
+      <h1 class="section-title mb-1">
+        <i class="bi bi-collection-play-fill me-2 text-accent"></i>Minha Biblioteca
+      </h1>
+      <p class="text-muted mb-0">{{ jogos_biblioteca.count }} jogo{% if jogos_biblioteca.count != 1 %}s{% endif %} na sua coleção</p>
+    </div>
+    <a href="{% url 'home' %}" class="btn btn-sg-outline">
+      <i class="bi bi-plus me-1"></i>Descobrir Jogos
+    </a>
+  </div>
+
+  {% if jogos_biblioteca %}
+  <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 g-3">
+    {% for item in jogos_biblioteca %}
+    <div class="col">
+      <div class="bib-card h-100">
+        <a href="{% url 'detalhe_jogo' item.jogo.id %}">
+          <img src="{{ item.jogo.get_imagem_url }}"
+               alt="{{ item.jogo.titulo }}"
+               onerror="this.src='https://via.placeholder.com/400x160/0d1b2a/00e676?text=🎮'">
+        </a>
+        <div class="p-3">
+          <h6 style="font-family:var(--font-brand); font-size:.8rem; font-weight:700;"
+              class="mb-2 text-truncate">
+            <a href="{% url 'detalhe_jogo' item.jogo.id %}" class="text-decoration-none"
+               style="color:inherit;">{{ item.jogo.titulo }}</a>
+          </h6>
+          <div class="d-flex align-items-center justify-content-between">
+            <span class="bib-badge">
+              <i class="bi bi-check-circle-fill me-1"></i>Instalado
+            </span>
+            <small class="text-muted" style="font-size:.7rem;">
+              {{ item.data_compra|date:"d/m/y" }}
+            </small>
+          </div>
+          {% if item.jogo.categoria %}
+          <small class="text-muted d-block mt-1" style="font-size:.72rem;">
+            {{ item.jogo.categoria.icone }} {{ item.jogo.categoria.nome }}
+          </small>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  {% else %}
+  <div class="text-center py-5">
+    <div style="font-size:4rem; opacity:.3; margin-bottom:1rem;">📚</div>
+    <h4 class="text-muted">Sua biblioteca está vazia</h4>
+    <p class="text-muted">Adicione jogos gratuitos ou finalize compras para ver seus jogos aqui.</p>
+    <a href="{% url 'home' %}" class="btn btn-sg px-4 mt-2">
+      <i class="bi bi-rocket-takeoff me-2"></i>Explorar Jogos
+    </a>
+  </div>
+  {% endif %}
+
+</div>
+{% endblock %}
