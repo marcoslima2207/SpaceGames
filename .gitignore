@@ -3,3 +3,5 @@ __pycache__/
 *.pyc
 .env
 .vscode/
+venv/
+space_games/venv/
