@@ -100,12 +100,13 @@ Acesse:
 http://127.0.0.1:8000/
 ```
 
-## 👨‍💻 Autor
+## 👨‍💻 integrantes 
 
 Marcos Eduardo de Oliveira Lima
-
-- Estudante de Análise e Desenvolvimento de Sistemas
-- Desenvolvedor Python e Django
+Guilherme Araujo 
+Caua
+Pedro Henrique
+Lauro
 
 ## 📌 Melhorias Futuras
 

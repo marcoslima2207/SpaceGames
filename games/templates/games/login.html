@@ -12,6 +12,7 @@
     margin: 60px auto;
     box-shadow: 0 30px 80px rgba(0,0,0,.4);
   }
+
   .auth-title {
     font-family: var(--font-brand);
     font-size: 1.8rem;
@@ -21,6 +22,7 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
+
   .form-control {
     background: var(--sg-surface2);
     border-color: var(--sg-border);
@@ -28,19 +30,37 @@
     border-radius: 10px;
     padding: .75rem 1rem;
   }
+
   .form-control:focus {
     background: var(--sg-surface2);
     border-color: var(--sg-accent);
     color: var(--sg-text);
     box-shadow: 0 0 0 3px rgba(0,212,255,.15);
   }
-  .form-label { color: var(--sg-muted); font-size: .85rem; font-weight: 600; }
+
+  .form-label {
+    color: var(--sg-muted);
+    font-size: .85rem;
+    font-weight: 600;
+  }
+
+  .forgot-link {
+    color: var(--sg-accent);
+    font-size: .9rem;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .forgot-link:hover {
+    text-decoration: underline;
+  }
 </style>
 {% endblock %}
 
 {% block content %}
 <div class="container">
   <div class="auth-card">
+
     <div class="text-center mb-4">
       <div style="font-size:2.5rem; margin-bottom:.5rem;">🚀</div>
       <h1 class="auth-title">Entrar</h1>
@@ -61,6 +81,7 @@
                placeholder="Seu nome de usuário"
                value="{{ form.username.value|default:'' }}"
                autofocus>
+
         {% for error in form.username.errors %}
           <div class="invalid-feedback">{{ error }}</div>
         {% endfor %}
@@ -70,32 +91,48 @@
         <label class="form-label" for="{{ form.password.id_for_label }}">
           <i class="bi bi-lock me-1"></i>Senha
         </label>
+
         <input type="password"
                class="form-control {% if form.password.errors %}is-invalid{% endif %}"
                id="{{ form.password.id_for_label }}"
                name="password"
                placeholder="Sua senha">
+
         {% for error in form.password.errors %}
           <div class="invalid-feedback">{{ error }}</div>
         {% endfor %}
       </div>
 
+      <div class="text-end mb-3">
+        <a href="{% url 'password_reset' %}" class="forgot-link">
+          Esqueceu sua senha?
+        </a>
+      </div>
+
       {% if form.non_field_errors %}
       <div class="alert alert-danger py-2 mb-3">
-        {% for error in form.non_field_errors %}{{ error }}{% endfor %}
+        {% for error in form.non_field_errors %}
+          {{ error }}
+        {% endfor %}
       </div>
       {% endif %}
 
       <button type="submit" class="btn btn-sg w-100 py-2 mb-3">
-        <i class="bi bi-box-arrow-in-right me-2"></i>Entrar
+        <i class="bi bi-box-arrow-in-right me-2"></i>
+        Entrar
       </button>
+
     </form>
 
     <hr style="border-color:var(--sg-border);">
+
     <p class="text-center text-muted mb-0">
       Não tem conta?
-      <a href="{% url 'cadastro' %}" class="text-accent fw-semibold">Criar conta grátis</a>
+      <a href="{% url 'cadastro' %}" class="text-accent fw-semibold">
+        Criar conta grátis
+      </a>
     </p>
+
   </div>
 </div>
 {% endblock %}
