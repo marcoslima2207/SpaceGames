@@ -100,13 +100,9 @@ Acesse:
 http://127.0.0.1:8000/
 ```
 
-## 👨‍💻 integrantes 
+## 👨‍💻 Autor
 
 Marcos Eduardo de Oliveira Lima
-Guilherme Araujo 
-Caua
-Pedro Henrique
-Lauro
 
 ## 📌 Melhorias Futuras
 
