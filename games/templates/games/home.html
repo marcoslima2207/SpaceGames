@@ -5,42 +5,100 @@
 
 {% block extra_css %}
 <style>
-  /* ── Hero ─────────────────────────────── */
-  .hero {
+ /* ── CARROSSEL DE DESTAQUES ───────────────── */
+
+.featured-carousel {
     position: relative;
     overflow: hidden;
-    padding: 80px 0 60px;
+    background: #050713;
+}
+
+.featured-slide {
+    position: relative;
+    height: 500px;
+    overflow: hidden;
+}
+
+.featured-background {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.featured-overlay {
+    position: absolute;
+    inset: 0;
+
     background:
-      radial-gradient(ellipse at 50% 0%, rgba(0,212,255,.12) 0%, transparent 60%),
-      radial-gradient(ellipse at 0% 100%, rgba(123,47,255,.1) 0%, transparent 50%);
-  }
-  .hero-title {
+        linear-gradient(
+            90deg,
+            rgba(5, 7, 19, .98) 0%,
+            rgba(5, 7, 19, .82) 35%,
+            rgba(5, 7, 19, .40) 65%,
+            rgba(5, 7, 19, .15) 100%
+        );
+}
+
+.featured-content {
+    position: relative;
+    z-index: 2;
+
+    height: 100%;
+    max-width: 600px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    margin-left: max(7%, calc((100% - 1200px) / 2));
+
+    padding: 40px 20px;
+}
+
+.featured-label {
+    color: var(--sg-accent);
+    font-size: .85rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.featured-content h1 {
     font-family: var(--font-brand);
-    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-size: clamp(2rem, 5vw, 4rem);
     font-weight: 900;
-    line-height: 1.1;
-    background: linear-gradient(135deg, #fff 30%, var(--sg-accent));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-  .hero-subtitle {
-    color: var(--sg-muted);
-    font-size: 1.1rem;
-    max-width: 520px;
-  }
-  .hero-stars {
-    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    pointer-events: none;
-    background-image:
-      radial-gradient(1px 1px at 10% 15%, rgba(255,255,255,.6) 0%, transparent 100%),
-      radial-gradient(1px 1px at 30% 40%, rgba(255,255,255,.4) 0%, transparent 100%),
-      radial-gradient(1px 1px at 55% 20%, rgba(255,255,255,.5) 0%, transparent 100%),
-      radial-gradient(1px 1px at 75% 60%, rgba(255,255,255,.3) 0%, transparent 100%),
-      radial-gradient(1px 1px at 90% 10%, rgba(255,255,255,.6) 0%, transparent 100%),
-      radial-gradient(1.5px 1.5px at 45% 75%, rgba(0,212,255,.5) 0%, transparent 100%),
-      radial-gradient(1px 1px at 20% 85%, rgba(255,255,255,.4) 0%, transparent 100%);
-  }
+    color: white;
+    margin-bottom: 20px;
+}
+
+.featured-content p {
+    color: #d0d4e0;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    max-width: 550px;
+    margin-bottom: 25px;
+}
+
+.featured-content .btn {
+    width: fit-content;
+}
+
+.featured-carousel .carousel-control-prev,
+.featured-carousel .carousel-control-next {
+    width: 8%;
+    z-index: 5;
+}
+
+.featured-carousel .carousel-indicators {
+    z-index: 5;
+}
+
+.featured-carousel .carousel-item {
+    transition: transform .7s ease-in-out;
+}
 
   /* ── Featured Carousel ───────────────── */
   .featured-card {
@@ -116,38 +174,127 @@
 {% block content %}
 
 <!-- ── Hero ──────────────────────────────────────────────── -->
-<section class="hero">
-  <div class="hero-stars"></div>
-  <div class="container position-relative">
-    <div class="row align-items-center">
-      <div class="col-lg-6">
-        <p class="text-accent fw-semibold mb-2" style="letter-spacing:2px; font-size:.85rem;">
-          🌌 SUA GALÁXIA DE JOGOS
-        </p>
-        <h1 class="hero-title mb-3">
-          Explore mundos.<br>Colecione aventuras.
-        </h1>
-        <p class="hero-subtitle mb-4">
-          Descubra milhares de jogos incríveis, construa sua biblioteca
-          e nunca perca um título favorito.
-        </p>
-        <div class="d-flex gap-2 flex-wrap">
-          <a href="#jogos" class="btn btn-sg px-4 py-2">
-            <i class="bi bi-controller me-2"></i>Ver Jogos
-          </a>
-          {% if not user.is_authenticated %}
-          <a href="{% url 'cadastro' %}" class="btn btn-sg-outline px-4 py-2">
-            Criar conta grátis
-          </a>
-          {% endif %}
+<!-- ── Carrossel de Jogos em Destaque ───────────────────── -->
+{% if jogos_destaque and not query and not categoria_selecionada %}
+
+<section class="featured-carousel">
+
+    <div id="carouselDestaques"
+         class="carousel slide"
+         data-bs-ride="carousel"
+         data-bs-interval="5000">
+
+        <!-- Indicadores -->
+        <div class="carousel-indicators">
+
+            {% for jogo in jogos_destaque %}
+
+            <button
+                type="button"
+                data-bs-target="#carouselDestaques"
+                data-bs-slide-to="{{ forloop.counter0 }}"
+                class="{% if forloop.first %}active{% endif %}"
+                aria-label="Slide {{ forloop.counter }}">
+            </button>
+
+            {% endfor %}
+
         </div>
-      </div>
-      <div class="col-lg-6 d-none d-lg-flex justify-content-center">
-        <div style="font-size:8rem; opacity:.3; filter:blur(2px);">🎮</div>
-      </div>
+
+
+        <!-- Slides -->
+        <div class="carousel-inner">
+
+            {% for jogo in jogos_destaque %}
+
+            <div class="carousel-item {% if forloop.first %}active{% endif %}">
+
+                <a href="{% url 'detalhe_jogo' jogo.id %}"
+                   class="text-decoration-none">
+
+                    <div class="featured-slide">
+
+                        <!-- Imagem do jogo -->
+                        <img
+                            src="{{ jogo.get_imagem_url }}"
+                            alt="{{ jogo.titulo }}"
+                            class="featured-background"
+                            onerror="this.src='https://via.placeholder.com/1600x600/0d1b2a/00d4ff?text=🎮'"
+                        >
+
+                        <!-- Escurece a imagem para o texto ficar legível -->
+                        <div class="featured-overlay"></div>
+
+
+                        <!-- Conteúdo -->
+                        <div class="featured-content">
+
+                            <span class="featured-label">
+                                ⭐ JOGO EM DESTAQUE
+                            </span>
+
+                            <h1>
+                                {{ jogo.titulo }}
+                            </h1>
+
+                            <p>
+                                {{ jogo.descricao|truncatechars:180 }}
+                            </p>
+
+                            <span class="btn btn-sg px-4">
+                                <i class="bi bi-controller me-2"></i>
+                                Ver jogo
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </a>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+
+        <!-- Botão anterior -->
+        <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselDestaques"
+            data-bs-slide="prev">
+
+            <span class="carousel-control-prev-icon"></span>
+
+            <span class="visually-hidden">
+                Anterior
+            </span>
+
+        </button>
+
+
+        <!-- Botão próximo -->
+        <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselDestaques"
+            data-bs-slide="next">
+
+            <span class="carousel-control-next-icon"></span>
+
+            <span class="visually-hidden">
+                Próximo
+            </span>
+
+        </button>
+
     </div>
-  </div>
+
 </section>
+
+{% endif %}
 
 <div class="container py-4" id="jogos">
 
