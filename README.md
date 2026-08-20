@@ -118,3 +118,7 @@ Marcos Eduardo de Oliveira Lima
 
 Projeto desenvolvido para fins acadêmicos e de aprendizado.
 
+##
+<p align="center">
+  <img src="https://media.tenor.com/KfL3l_4SuVEAAAAj/mario-super-mario-world.gif" width="200">
+</p>
