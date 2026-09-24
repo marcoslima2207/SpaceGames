@@ -1,0 +1,14 @@
+<section class="auth-page"><div class="auth-panel"><div class="auth-heading"><span class="auth-rocket"><img src="https://media.tenor.com/TaksN5IX-xIAAAAi/rocket-space.gif" alt="Foguete pixelado"></span><p class="eyebrow dark">SPACEGAMES ACCOUNT</p><h1>{{ register ? 'Criar conta' : 'Entrar na conta' }}</h1><p>{{ register ? 'Junte-se à galáxia e organize suas aventuras.' : 'Retome sua próxima aventura.' }}</p></div>
+  <form (ngSubmit)="submit()" #authForm="ngForm">
+    @if (error()) {<p class="form-error">{{ error() }}</p>}
+    @if (register) {<label>Nome<input name="name" [(ngModel)]="name" required placeholder="Seu nome"></label>}
+    <label>Usuário<input name="username" [(ngModel)]="username" required autocomplete="username" placeholder="Seu nome de usuário"></label>
+    @if (register) {<label>E-mail<input name="email" [(ngModel)]="email" required type="email" autocomplete="email" placeholder="voce@email.com"></label>}
+    <label>Senha<input name="password" [(ngModel)]="password" required type="password" autocomplete="current-password" placeholder="Sua senha"></label>
+    @if (register) {<label>Confirmar senha<input name="confirmPassword" [(ngModel)]="confirmPassword" required type="password" autocomplete="new-password" placeholder="Repita sua senha"></label>}
+    @if (!register) {<a class="auth-help" routerLink="/password-reset">Esqueceu sua senha?</a>}
+    <button class="primary-button auth-submit" type="submit">{{ register ? 'Criar conta' : 'Entrar' }} <span>→</span></button>
+    @if (submitted()) {<p class="form-notice">Acesso realizado. Redirecionando para o catálogo...</p>}
+  </form>
+  <p class="auth-switch">{{ register ? 'Já tem uma conta?' : 'Ainda não tem conta?' }} <a [routerLink]="register ? '/login' : '/cadastro'">{{ register ? 'Entrar' : 'Criar conta grátis' }}</a></p>
+</div></section>

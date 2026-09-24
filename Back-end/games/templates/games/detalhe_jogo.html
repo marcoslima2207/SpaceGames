@@ -1,0 +1,207 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ jogo.titulo }} — Space_Games{% endblock %}
+
+{% block extra_css %}
+<style>
+  .jogo-hero {
+    background: var(--sg-surface);
+    border-bottom: 1px solid var(--sg-border);
+    padding: 40px 0;
+  }
+
+  .jogo-cover {
+    border-radius: 16px;
+    width: 100%;
+    max-height: 380px;
+    object-fit: cover;
+    box-shadow: 0 20px 60px rgba(0,0,0,.5);
+  }
+
+  .jogo-title {
+    font-family: var(--font-brand);
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    font-weight: 900;
+    line-height: 1.15;
+  }
+
+  .info-chip {
+    background: var(--sg-surface2);
+    border: 1px solid var(--sg-border);
+    border-radius: 8px;
+    padding: 8px 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: .85rem;
+  }
+
+  .descricao-box {
+    background: var(--sg-surface);
+    border: 1px solid var(--sg-border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    line-height: 1.8;
+    color: var(--sg-muted);
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="jogo-hero">
+  <div class="container">
+    <div class="row g-4 align-items-start">
+
+      <!-- CAPA -->
+      <div class="col-md-4 col-lg-3">
+        <img src="{{ jogo.get_imagem_url }}"
+             alt="{{ jogo.titulo }}"
+             class="jogo-cover"
+             onerror="this.src='https://via.placeholder.com/400x380/0d1b2a/00d4ff?text=🎮'">
+      </div>
+
+      <!-- INFO -->
+      <div class="col-md-8 col-lg-9">
+
+        {% if jogo.categoria %}
+          <a href="/?categoria={{ jogo.categoria.slug }}" class="text-accent d-block mb-2">
+            {{ jogo.categoria.icone }} {{ jogo.categoria.nome }}
+          </a>
+        {% endif %}
+
+        <h1 class="jogo-title mb-3">{{ jogo.titulo }}</h1>
+
+        <!-- CHIPS -->
+        <div class="d-flex flex-wrap gap-2 mb-3">
+          {% if jogo.desenvolvedor %}
+            <div class="info-chip">🎮 {{ jogo.desenvolvedor }}</div>
+          {% endif %}
+          {% if jogo.ano_lancamento %}
+            <div class="info-chip">📅 {{ jogo.ano_lancamento }}</div>
+          {% endif %}
+          {% if jogo.avaliacao > 0 %}
+            <div class="info-chip">⭐ {{ jogo.avaliacao }}/5</div>
+          {% endif %}
+          {% if jogo.destaque %}
+            <div class="info-chip">🔥 Destaque</div>
+          {% endif %}
+        </div>
+
+        <!-- PREÇO -->
+        <div class="mb-4">
+          {% if jogo.gratuito %}
+            <span style="font-size:2rem; color:var(--sg-success); font-weight:700;">
+              GRÁTIS
+            </span>
+          {% else %}
+            <span style="font-size:2rem; color:var(--sg-accent); font-weight:700;">
+              R$ {{ jogo.preco }}
+            </span>
+          {% endif %}
+        </div>
+
+        <!-- BOTÕES -->
+        {% if user.is_authenticated %}
+
+          <div class="d-flex flex-wrap gap-2 mb-3">
+
+            {% if na_biblioteca %}
+
+              <a href="{% url 'biblioteca' %}" class="btn btn-success px-4 py-2">
+                ✔ Na Biblioteca
+              </a>
+
+              <!-- DOWNLOAD CORRETO -->
+              <a href="{% url 'download_jogo' jogo.id %}"
+                 class="btn btn-primary px-4 py-2">
+                ⬇ Instalar / Baixar
+              </a>
+
+            {% else %}
+
+              {% if jogo.gratuito %}
+
+                <form method="post" action="{% url 'adicionar_gratuito' jogo.id %}">
+                  {% csrf_token %}
+                  <button class="btn btn-sg px-4 py-2">
+                    🎮 Adicionar grátis
+                  </button>
+                </form>
+
+              {% else %}
+
+                {% if no_carrinho %}
+                  <a href="{% url 'carrinho' %}" class="btn btn-sg px-4 py-2">
+                    Ver no carrinho
+                  </a>
+                {% else %}
+                  <form method="post" action="{% url 'adicionar_carrinho' jogo.id %}">
+                    {% csrf_token %}
+                    <button class="btn btn-sg px-4 py-2">
+                      🛒 Comprar
+                    </button>
+                  </form>
+                {% endif %}
+
+              {% endif %}
+
+            {% endif %}
+
+            <!-- FAVORITO -->
+            <form method="post" action="{% url 'toggle_favorito' jogo.id %}">
+              {% csrf_token %}
+              <button class="btn {% if is_favorito %}btn-warning{% else %}btn-outline-light{% endif %}">
+                ❤️ Favorito
+              </button>
+            </form>
+
+          </div>
+
+        {% else %}
+
+          <div class="d-flex gap-2">
+            <a href="{% url 'login' %}" class="btn btn-sg px-4 py-2">
+              Entrar
+            </a>
+            <a href="{% url 'cadastro' %}" class="btn btn-sg-outline px-4 py-2">
+              Criar conta
+            </a>
+          </div>
+
+        {% endif %}
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DESCRIÇÃO -->
+<div class="container py-4">
+  <h3>Sobre o jogo</h3>
+  <div class="descricao-box">
+    {{ jogo.descricao|linebreaks }}
+  </div>
+</div>
+
+<!-- RELACIONADOS -->
+<div class="container py-3">
+  {% if jogos_relacionados %}
+    <h3>Jogos similares</h3>
+
+    <div class="row">
+      {% for rel in jogos_relacionados %}
+        <div class="col-md-3">
+          <a href="{% url 'detalhe_jogo' rel.id %}">
+            <div style="background:var(--sg-surface); padding:10px; border-radius:10px;">
+              <img src="{{ rel.get_imagem_url }}" style="width:100%; border-radius:8px;">
+              <p>{{ rel.titulo }}</p>
+            </div>
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+</div>
+
+{% endblock %}

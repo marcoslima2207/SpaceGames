@@ -1,0 +1,27 @@
+<div class="theme-root" [class.light-theme]="!darkMode()"><header class="topbar">
+  <a class="brand" routerLink="/" aria-label="SpaceGames início">
+    <span class="brand-mark"><img src="https://media.tenor.com/TaksN5IX-xIAAAAi/rocket-space.gif" alt="Foguete pixelado SpaceGames"></span><span>SPACE<span class="brand-accent">GAMES</span></span>
+  </a>
+  <form class="top-search" (ngSubmit)="search()">
+    <input name="query" [(ngModel)]="query" type="search" placeholder="Buscar jogos..." aria-label="Buscar jogos">
+    <button type="submit" aria-label="Buscar">⌕</button>
+  </form>
+  <div class="player-hud" title="Seu progresso de jogador">
+    <span class="level-badge">LVL {{ level() }}</span>
+    <div class="xp-copy"><strong>{{ xp() }} XP</strong><span>Próximo nível</span></div>
+    <div class="xp-track"><i [style.width.%]="levelProgress() / 10"></i></div>
+  </div>
+  <nav class="navigation" aria-label="Navegação principal">
+    <a routerLink="/" fragment="catalogo" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Explorar</a>
+    <a routerLink="/" fragment="gratuitos">Gratuitos</a>
+    @if (isLoggedIn()) {<a routerLink="/perfil">Perfil</a><button class="nav-action" type="button" (click)="logout()">Sair</button>} @else {<a routerLink="/login">Entrar</a>}
+  </nav>
+  <button class="theme-toggle" type="button" (click)="toggleTheme()" [attr.aria-label]="darkMode() ? 'Ativar modo claro' : 'Ativar modo escuro'" [title]="darkMode() ? 'Modo claro' : 'Modo escuro'">
+    {{ darkMode() ? '☼' : '☾' }}
+  </button>
+  @if (!isLoggedIn()) {<a class="profile-link" routerLink="/cadastro">Criar conta <span>↗</span></a>}
+</header>
+
+<main><router-outlet /></main>
+
+<footer><a class="brand" routerLink="/"><span class="brand-mark"><img src="https://media.tenor.com/TaksN5IX-xIAAAAi/rocket-space.gif" alt="Foguete pixelado SpaceGames"></span> SPACE<span class="brand-accent">GAMES</span></a><span>Uma galáxia inteira na sua biblioteca.</span><span>© 2026 SpaceGames</span></footer></div>

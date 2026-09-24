@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+{% block title %}Cadastro — Space_Games{% endblock %}
+
+{% block extra_css %}
+<style>
+  .auth-card {
+    background: var(--sg-surface);
+    border: 1px solid var(--sg-border);
+    border-radius: 16px;
+    padding: 2.25rem;
+    max-width: 480px;
+    margin: 42px auto 70px;
+    box-shadow: 0 30px 80px rgba(0,0,0,.4);
+  }
+  .auth-header { margin-bottom: 1.8rem; }
+  .auth-icon { font-size: 2.2rem; margin-bottom: .45rem; }
+  .auth-title {
+    font-family: var(--font-brand);
+    font-size: 1.65rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, #fff, var(--sg-accent2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .form-control {
+    background: var(--sg-surface2);
+    border-color: var(--sg-border);
+    color: var(--sg-text);
+    border-radius: 10px;
+    padding: .75rem 1rem;
+  }
+  .form-control:focus {
+    background: var(--sg-surface2);
+    border-color: var(--sg-accent2);
+    color: var(--sg-text);
+    box-shadow: 0 0 0 3px rgba(123,47,255,.15);
+  }
+  .form-label { color: var(--sg-muted); font-size: .85rem; font-weight: 600; }
+  .form-text { color: var(--sg-muted); font-size: .75rem; }
+  .auth-card .mb-3 { margin-bottom: 1.15rem !important; }
+  .auth-card .invalid-feedback { color: #ff8e9d; font-size: .78rem; line-height: 1.35; }
+  .auth-card .btn-sg { padding-top: .75rem !important; padding-bottom: .75rem !important; }
+  .auth-card hr { margin: 1.5rem 0 1.25rem; opacity: .8; }
+  @media (max-width: 576px) {
+    .auth-card { border-left: 0; border-right: 0; border-radius: 0; margin: 0 auto 40px; padding: 2rem 1.25rem 2.5rem; }
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="auth-card">
+    <div class="auth-header text-center">
+      <div class="auth-icon">🚀</div>
+      <h1 class="auth-title">Criar Conta</h1>
+      <p class="text-muted mb-0">Junte-se à galáxia SpaceGames</p>
+    </div>
+
+    <form method="post" novalidate>
+      {% csrf_token %}
+
+      {% if form.non_field_errors %}
+        <div class="alert alert-danger py-2 small">{{ form.non_field_errors }}</div>
+      {% endif %}
+
+      {% for field in form %}
+      <div class="mb-3">
+        <label class="form-label" for="{{ field.id_for_label }}">
+          {% if field.name == 'username' %}<i class="bi bi-at me-1"></i>
+          {% elif field.name == 'email' %}<i class="bi bi-envelope me-1"></i>
+          {% elif field.name == 'first_name' %}<i class="bi bi-person me-1"></i>
+          {% else %}<i class="bi bi-lock me-1"></i>
+          {% endif %}
+          {{ field.label }}
+        </label>
+        <input type="{% if 'password' in field.name %}password{% elif field.name == 'email' %}email{% else %}text{% endif %}"
+               class="form-control {% if field.errors %}is-invalid{% endif %}"
+               id="{{ field.id_for_label }}"
+               name="{{ field.html_name }}"
+               value="{{ field.value|default:'' }}"
+               placeholder="{{ field.label }}"
+               autocomplete="{% if field.name == 'username' %}username{% elif field.name == 'email' %}email{% elif field.name == 'password1' %}new-password{% elif field.name == 'password2' %}new-password{% else %}name{% endif %}"
+               {% if field.field.required %}required{% endif %}
+               {% if field.name == 'username' %}autofocus{% endif %}>
+        {% if field.help_text %}
+          <div class="form-text">{{ field.help_text }}</div>
+        {% endif %}
+        {% for error in field.errors %}
+          <div class="invalid-feedback d-block">{{ error }}</div>
+        {% endfor %}
+      </div>
+      {% endfor %}
+
+      <button type="submit" class="btn btn-sg w-100 py-2 mb-3 mt-2">
+        <i class="bi bi-rocket-takeoff me-2"></i>Criar Conta
+      </button>
+    </form>
+
+    <hr style="border-color:var(--sg-border);">
+    <p class="text-center text-muted mb-0">
+      Já tem uma conta?
+      <a href="{% url 'login' %}" class="text-accent fw-semibold">Entrar</a>
+    </p>
+  </div>
+</div>
+{% endblock %}
