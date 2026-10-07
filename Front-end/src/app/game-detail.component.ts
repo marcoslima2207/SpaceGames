@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, OnInit, inject, signal } from '@ang
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { Game, GamesService, Review } from './games.service';
+import { API_URL } from './api.config';
 
 @Component({
   selector: 'sg-game-detail',
@@ -28,6 +29,7 @@ export class GameDetailComponent implements OnInit {
   }
   imageUrl(game: Game): string { return game.imagem_url_publica || game.imagem || 'https://placehold.co/900x560/120b20/d0b2ff?text=SPACEGAMES'; }
   formatPrice(game: Game): string { return game.gratuito ? 'GRÁTIS' : Number(game.preco).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }); }
+  downloadUrl(game: Game): string { return `${API_URL}/download/${game.id}/`; }
   toggleFavorite(): void { this.runAction((id) => this.gamesService.toggleFavorite(id), 'Favorito atualizado.'); }
   addToCart(): void { this.runAction((id) => this.gamesService.addToCart(id), 'Jogo adicionado ao carrinho.'); }
   addFreeGame(): void { this.runAction((id) => this.gamesService.addFreeGame(id), 'Jogo adicionado à biblioteca.'); }

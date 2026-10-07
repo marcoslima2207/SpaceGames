@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/cor
 import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { API_URL } from './api.config';
 
 @Component({
   selector: 'sg-auth-page',
@@ -28,7 +29,7 @@ export class AuthPageComponent {
     const payload = this.register
       ? { username: this.username, email: this.email, password: this.password, first_name: this.name }
       : { username: this.username, password: this.password };
-    const endpoint = this.register ? '/api/auth/register/' : '/api/token/';
+    const endpoint = this.register ? `${API_URL}/api/auth/register/` : `${API_URL}/api/token/`;
     this.http.post<{ access: string; refresh: string }>(endpoint, payload).subscribe({
       next: (tokens) => {
         localStorage.setItem('spacegames_access', tokens.access);

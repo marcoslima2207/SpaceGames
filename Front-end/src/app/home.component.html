@@ -1,7 +1,7 @@
 @if (loading()) {
   <section class="loading-state"><div class="loading-rocket"><img src="https://media.tenor.com/TaksN5IX-xIAAAAi/rocket-space.gif" alt="Foguete subindo"></div><p>Mapeando a galáxia de jogos...</p><span class="loading-caption">PREPARANDO SUA PRÓXIMA AVENTURA</span></section>
 } @else if (error()) {
-  <section class="empty-state"><span class="empty-icon">◌</span><h2>Não foi possível abrir o catálogo</h2><p>Confirme se o Django está rodando em <strong>127.0.0.1:8000</strong>.</p></section>
+  <section class="empty-state"><span class="empty-icon">◌</span><h2>Não foi possível abrir o catálogo</h2><p>Confirme se a API SpaceGames está online.</p></section>
 } @else {
   @if (featured().length) {
     <section class="hero" aria-label="Jogos em destaque"><div class="hero-art" [style.background-image]="'url(' + imageUrl(featured()[heroIndex()]) + ')'">

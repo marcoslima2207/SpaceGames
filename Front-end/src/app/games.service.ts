@@ -1,6 +1,7 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
+import { API_URL } from './api.config';
 
 export interface Game {
   id: number;
@@ -41,44 +42,44 @@ export class GamesService {
   private readonly http = inject(HttpClient);
 
   getGames(): Observable<Game[]> {
-    return this.http.get<Game[] | { results: Game[] }>('/api/jogos/').pipe(
+    return this.http.get<Game[] | { results: Game[] }>(`${API_URL}/api/jogos/`).pipe(
       map((response) => Array.isArray(response) ? response : response.results)
     );
   }
 
   getAccountSummary(): Observable<AccountSummary> {
     const token = localStorage.getItem('spacegames_access') || '';
-    return this.http.get<AccountSummary>('/api/auth/me/', {
+    return this.http.get<AccountSummary>(`${API_URL}/api/auth/me/`, {
       headers: new HttpHeaders({ Authorization: `Bearer ${token}` })
     });
   }
 
   toggleFavorite(gameId: number): Observable<unknown> {
-    return this.http.post(`/api/jogos/${gameId}/favorito/`, {}, { headers: this.authHeaders() });
+    return this.http.post(`${API_URL}/api/jogos/${gameId}/favorito/`, {}, { headers: this.authHeaders() });
   }
 
   addToCart(gameId: number): Observable<unknown> {
-    return this.http.post(`/api/jogos/${gameId}/carrinho/`, {}, { headers: this.authHeaders() });
+    return this.http.post(`${API_URL}/api/jogos/${gameId}/carrinho/`, {}, { headers: this.authHeaders() });
   }
 
   addFreeGame(gameId: number): Observable<unknown> {
-    return this.http.post(`/api/jogos/${gameId}/gratuito/`, {}, { headers: this.authHeaders() });
+    return this.http.post(`${API_URL}/api/jogos/${gameId}/gratuito/`, {}, { headers: this.authHeaders() });
   }
 
   checkout(): Observable<unknown> {
-    return this.http.post('/api/carrinho/finalizar/', {}, { headers: this.authHeaders() });
+    return this.http.post(`${API_URL}/api/carrinho/finalizar/`, {}, { headers: this.authHeaders() });
   }
 
   removeFromCart(itemId: number): Observable<unknown> {
-    return this.http.delete(`/api/carrinho/${itemId}/`, { headers: this.authHeaders() });
+    return this.http.delete(`${API_URL}/api/carrinho/${itemId}/`, { headers: this.authHeaders() });
   }
 
   getReviews(gameId: number): Observable<Review[]> {
-    return this.http.get<Review[]>(`/api/jogos/${gameId}/avaliacoes/`);
+    return this.http.get<Review[]>(`${API_URL}/api/jogos/${gameId}/avaliacoes/`);
   }
 
   saveReview(gameId: number, nota: number, comentario: string): Observable<Review> {
-    return this.http.post<Review>(`/api/jogos/${gameId}/avaliacoes/`, { nota, comentario }, { headers: this.authHeaders() });
+    return this.http.post<Review>(`${API_URL}/api/jogos/${gameId}/avaliacoes/`, { nota, comentario }, { headers: this.authHeaders() });
   }
 
   private authHeaders(): HttpHeaders {
