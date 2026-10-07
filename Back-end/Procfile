@@ -1,1 +1,1 @@
-web: gunicorn space_games.wsgi:application
+web: gunicorn space_games.wsgi:application --access-logfile - --error-logfile - --log-level debug
