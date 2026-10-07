@@ -17,6 +17,8 @@ configured_hosts = [
     if host.strip()
 ]
 ALLOWED_HOSTS = list(dict.fromkeys([
+    '127.0.0.1',
+    'localhost',
     'spacegames-production.up.railway.app',
     '.railway.app',
     *configured_hosts,
