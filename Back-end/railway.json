@@ -2,7 +2,7 @@
   "$schema": "https://railway.app/railway.schema.json",
   "build": {
     "builder": "NIXPACKS",
-    "buildCommand": "pip install -r requirements.txt && python manage.py migrate && python manage.py shell -c \"from django.core.management import call_command; from games.models import Jogo; call_command('loaddata', 'games/fixtures/initial_data.json') if not Jogo.objects.exists() else None\" && python manage.py collectstatic --noinput"
+    "buildCommand": "pip install -r requirements.txt && python manage.py migrate && python manage.py shell -c \"from django.core.management import call_command; from games.models import Jogo, Categoria; call_command('loaddata', 'games/fixtures/initial_data.json') if not Jogo.objects.exists() and not Categoria.objects.exists() else None\" && python manage.py collectstatic --noinput"
   },
   "deploy": {
     "startCommand": "gunicorn space_games.wsgi:application",
