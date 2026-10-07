@@ -11,11 +11,16 @@ SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'django-insecure-dev-only-change-me'
 
 DEBUG = os.getenv('DJANGO_DEBUG', 'True').lower() == 'true'
 
-ALLOWED_HOSTS = [
+configured_hosts = [
     host.strip().replace('*.', '.')
-    for host in os.getenv('DJANGO_ALLOWED_HOSTS', '*').split(',')
+    for host in os.getenv('DJANGO_ALLOWED_HOSTS', '').split(',')
     if host.strip()
 ]
+ALLOWED_HOSTS = list(dict.fromkeys([
+    'spacegames-production.up.railway.app',
+    '.railway.app',
+    *configured_hosts,
+]))
 
 INSTALLED_APPS = [
     'django.contrib.admin',
