@@ -97,7 +97,7 @@ class Jogo(models.Model):
         default=0.0, verbose_name='Avaliação (0-5)'
     )
     data_criacao = models.DateTimeField(
-        auto_now_add=True, verbose_name='Data de Criação'
+        default=timezone.now, verbose_name='Data de Criação'
     )
     estoque = models.PositiveIntegerField(
         default=0
