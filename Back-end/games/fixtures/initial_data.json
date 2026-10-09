@@ -1,47 +1,597 @@
 [
-  {"model": "games.categoria", "pk": 1, "fields": {"nome": "Ação", "icone": "⚔️", "slug": "acao"}},
-  {"model": "games.categoria", "pk": 2, "fields": {"nome": "RPG", "icone": "🧙", "slug": "rpg"}},
-  {"model": "games.categoria", "pk": 3, "fields": {"nome": "Estratégia", "icone": "🏰", "slug": "estrategia"}},
-  {"model": "games.categoria", "pk": 4, "fields": {"nome": "Esportes", "icone": "⚽", "slug": "esportes"}},
-  {"model": "games.categoria", "pk": 5, "fields": {"nome": "Aventura", "icone": "🗺️", "slug": "aventura"}},
-  {"model": "games.categoria", "pk": 6, "fields": {"nome": "Terror", "icone": "👻", "slug": "terror"}},
-  {"model": "games.categoria", "pk": 7, "fields": {"nome": "Corrida", "icone": "🏎️", "slug": "corrida"}},
-  {"model": "games.categoria", "pk": 8, "fields": {"nome": "Simulação", "icone": "🏗️", "slug": "simulacao"}},
-
-  {"model": "games.jogo", "pk": 1, "fields": {
-    "titulo": "Galaxy Warriors", "descricao": "Batalhas épicas no espaço sideral. Enfrente hordas de alienígenas em combate frenético com armas futuristas e poderes especiais.", "preco": "59.90", "gratuito": false, "destaque": true, "imagem": "", "imagem_url": "https://via.placeholder.com/400x220/050a14/00d4ff?text=Galaxy+Warriors", "categoria_id": 1, "desenvolvedor": "NebulaSoft", "ano_lancamento": 2024, "avaliacao": "4.8"
-  }},
-  {"model": "games.jogo", "pk": 2, "fields": {
-    "titulo": "Legends of Aether", "descricao": "Um RPG de fantasia épica com mundo aberto imenso, centenas de missões e um sistema de magia profundo. Construa seu herói do zero.", "preco": "79.90", "gratuito": false, "destaque": true, "imagem": "", "imagem_url": "https://via.placeholder.com/400x220/0d1b2a/7b2fff?text=Legends+of+Aether", "categoria_id": 2, "desenvolvedor": "AetherGames", "ano_lancamento": 2024, "avaliacao": "4.9"
-  }},
-  {"model": "games.jogo", "pk": 3, "fields": {
-    "titulo": "Stellar Odyssey", "descricao": "Explore galáxias distantes, construa sua frota e conquiste sistemas estelares. O universo é seu para dominar.", "preco": "0.00", "gratuito": true, "destaque": true, "imagem": "", "imagem_url": "https://via.placeholder.com/400x220/0a1628/00d4ff?text=Stellar+Odyssey", "categoria_id": 3, "desenvolvedor": "CosmicDevs", "ano_lancamento": 2023, "avaliacao": "4.5"
-  }},
-  {"model": "games.jogo", "pk": 4, "fields": {
-    "titulo": "Turbo Racers X", "descricao": "Corridas de alta velocidade em pistas futuristas. Customize seu veículo e domine o circuito mundial.", "preco": "39.90", "gratuito": false, "destaque": false, "imagem": "", "imagem_url": "https://via.placeholder.com/400x220/14070a/ff6b35?text=Turbo+Racers+X", "categoria_id": 7, "desenvolvedor": "VelocityStudio", "ano_lancamento": 2024, "avaliacao": "4.2"
-  }},
-  {"model": "games.jogo", "pk": 5, "fields": {
-    "titulo": "Dark Abyss", "descricao": "Sobreviva nas profundezas de uma masmorra assombrada. Cada corrida é única, cada morte te ensina algo novo.", "preco": "29.90", "gratuito": false, "destaque": false, "imagem": "", "imagem_url": "https://via.placeholder.com/400x220/0a0014/c4b5fd?text=Dark+Abyss", "categoria_id": 6, "desenvolvedor": "ShadowCode", "ano_lancamento": 2023, "avaliacao": "4.6"
-  }},
-  {"model": "games.jogo", "pk": 6, "fields": {
-    "titulo": "City Builder Pro", "descricao": "Construa e gerencie a metrópole dos seus sonhos. Controle infraestrutura, economia e o bem-estar de milhões de cidadãos.", "preco": "0.00", "gratuito": true, "destaque": false, "imagem": "", "imagem_url": "https://via.placeholder.com/400x220/0f1f0f/00e676?text=City+Builder+Pro", "categoria_id": 8, "desenvolvedor": "UrbanPixels", "ano_lancamento": 2024, "avaliacao": "4.3"
-  }},
-  {"model": "games.jogo", "pk": 7, "fields": {
-    "titulo": "Champions League 25", "descricao": "O simulador de futebol mais realista do mundo. Gerencie seu time dos sonhos ou jogue nas maiores ligas do planeta.", "preco": "49.90", "gratuito": false, "destaque": true, "imagem": "", "imagem_url": "https://via.placeholder.com/400x220/0a1a0a/00e676?text=Champions+League+25", "categoria_id": 4, "desenvolvedor": "GoalSport", "ano_lancamento": 2025, "avaliacao": "4.7"
-  }},
-  {"model": "games.jogo", "pk": 8, "fields": {
-    "titulo": "Lost Jungle", "descricao": "Aventura de exploração em uma selva misteriosa repleta de segredos, ruínas antigas e criaturas perigosas.", "preco": "0.00", "gratuito": true, "destaque": false, "imagem": "", "imagem_url": "https://via.placeholder.com/400x220/0f1a0a/a3e635?text=Lost+Jungle", "categoria_id": 5, "desenvolvedor": "WildPath Games", "ano_lancamento": 2023, "avaliacao": "4.0"
-  }},
-  {"model": "games.jogo", "pk": 9, "fields": {
-    "titulo": "Phantom Strike", "descricao": "FPS de ação intensa com modos multiplayer competitivos e campanha solo emocionante. Mire, atire, vença.", "preco": "69.90", "gratuito": false, "destaque": true, "imagem": "", "imagem_url": "https://via.placeholder.com/400x220/140000/ff6b35?text=Phantom+Strike", "categoria_id": 1, "desenvolvedor": "ApexForge", "ano_lancamento": 2025, "avaliacao": "4.5"
-  }},
-  {"model": "games.jogo", "pk": 10, "fields": {
-    "titulo": "Neon Riders", "descricao": "Corridas em neon no submundo cyberpunk. Vença rachas ilegais e construa sua reputação nas ruas da cidade.", "preco": "0.00", "gratuito": true, "destaque": false, "imagem": "", "imagem_url": "https://via.placeholder.com/400x220/050014/00d4ff?text=Neon+Riders", "categoria_id": 7, "desenvolvedor": "CyberWheel", "ano_lancamento": 2024, "avaliacao": "4.1"
-  }},
-  {"model": "games.jogo", "pk": 11, "fields": {
-    "titulo": "Kingdoms & Empires", "descricao": "Grande jogo de estratégia em tempo real. Construa um império do zero, forje alianças e conquiste o mundo medieval.", "preco": "44.90", "gratuito": false, "destaque": false, "imagem": "", "imagem_url": "https://via.placeholder.com/400x220/1a0f00/ffd700?text=Kingdoms+%26+Empires", "categoria_id": 3, "desenvolvedor": "IronCrown Studios", "ano_lancamento": 2024, "avaliacao": "4.4"
-  }},
-  {"model": "games.jogo", "pk": 12, "fields": {
-    "titulo": "Pixel Farm", "descricao": "Cultive sua fazenda, cuide dos animais e construa a propriedade dos seus sonhos neste relaxante simulador agrícola.", "preco": "0.00", "gratuito": true, "destaque": false, "imagem": "", "imagem_url": "https://via.placeholder.com/400x220/0f1f00/a3e635?text=Pixel+Farm", "categoria_id": 8, "desenvolvedor": "GreenByte", "ano_lancamento": 2023, "avaliacao": "4.2"
-  }}
+{
+  "model": "games.categoria",
+  "pk": 1,
+  "fields": {
+    "nome": "Tiro (FPS)",
+    "icone": "­ƒö½",
+    "slug": "tiro-fps"
+  }
+},
+{
+  "model": "games.categoria",
+  "pk": 2,
+  "fields": {
+    "nome": "indie",
+    "icone": "­ƒò╣´©Å",
+    "slug": "indie"
+  }
+},
+{
+  "model": "games.categoria",
+  "pk": 3,
+  "fields": {
+    "nome": "a├º├úo",
+    "icone": "­ƒÄ«",
+    "slug": "acao"
+  }
+},
+{
+  "model": "games.categoria",
+  "pk": 4,
+  "fields": {
+    "nome": "RPG",
+    "icone": "­ƒæ¥",
+    "slug": "rpg"
+  }
+},
+{
+  "model": "games.categoria",
+  "pk": 5,
+  "fields": {
+    "nome": "Esporte",
+    "icone": "",
+    "slug": "esporte"
+  }
+},
+{
+  "model": "games.jogo",
+  "pk": 1,
+  "fields": {
+    "titulo": "Halo: Combat Evolved",
+    "descricao": "Halo: Combat Evolved ├® um cl├íssico jogo de tiro em primeira pessoa (FPS) de fic├º├úo cient├¡fica lan├ºado em 2001, desenvolvido pela Bungie e publicado pela Microsoft. Os jogadores assumem o papel de Master Chief, um supersoldado que, com a ajuda da intelig├¬ncia artificial Cortana, luta para salvar a humanidade de uma ra├ºa alien├¡gena fan├ítica conhecida como Covenant.\r\n\r\nHist├│ria\r\nA trama se passa no s├®culo XXVI. Ap├│s a destrui├º├úo do principal planeta militar da humanidade, a nave humana Pillar of Autumn ├® for├ºada a fugir e acaba encontrando o Halo, uma misteriosa e gigantesca estrutura em formato de anel. L├í, Master Chief e a tripula├º├úo devem enfrentar as for├ºas alien├¡genas de Covenant enquanto tentam descobrir os segredos mortais que o anel esconde, incluindo uma antiga amea├ºa parasit├íria.\r\n\r\nImpacto e Mec├ónicas\r\nO jogo ├® considerado um marco na hist├│ria dos videogames. Ele estabeleceu o padr├úo moderno de controles de FPS para consoles (usando os dois anal├│gicos para movimenta├º├úo e mira) e introduziu mec├ónicas inovadoras na ├®poca, como a regenera├º├úo autom├ítica de vida, ataques corpo a corpo dedicados, lan├ºamento r├ípido de granadas e a possibilidade de pilotar diversos ve├¡culos.",
+    "preco": "0.00",
+    "gratuito": true,
+    "destaque": false,
+    "imagem": "",
+    "imagem_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-xEkqwgciMgLdUYTR7PhC_LSuQ2A1SANB3rco3BEfcA&s=10",
+    "arquivo_instalacao": "downloads/Halo_Combat_Evolved.7z",
+    "link_download": "https://drive.usercontent.google.com/download?id=1MLrZ7coHHX5Cv78wACPomyUmfH6H2O9C&export=download&authuser=0",
+    "categoria": 1,
+    "desenvolvedor": "Bungie, MacSoft Games",
+    "ano_lancamento": 2001,
+    "avaliacao": "5.0",
+    "data_criacao": "2026-06-20T21:51:39.409Z",
+    "estoque": 0,
+    "estoque_minimo": 5
+  }
+},
+{
+  "model": "games.jogo",
+  "pk": 2,
+  "fields": {
+    "titulo": "Halo 2",
+    "descricao": "Halo 2 ├® um cl├íssico jogo de tiro em primeira pessoa (FPS) que segue a ├®pica batalha entre a humanidade (UNSC) e a alian├ºa alien├¡gena Covenant. Lan├ºado originalmente em 2004, o jogo permite controlar o lend├írio Master Chief e, pela primeira vez, um guerreiro alien├¡gena chamado ├ürbitro.\r\n\r\nVis├úo Geral e EnredoA trama come├ºa quando os alien├¡genas Covenant descobrem a localiza├º├úo da Terra e iniciam um ataque devastador. Enquanto Master Chief tenta repelir a invas├úo, o ├ürbitro ÔÇö um guerreiro desonrado ÔÇö ├® for├ºado a lutar pela sobreviv├¬ncia e pela f├® de sua esp├®cie. A narrativa ├® elogiada por mostrar os dois lados do conflito e revelar segredos sobre a constru├º├úo dos an├®is Halo\r\n\r\nMec├ónicas Principais\r\nO jogo consolidou padr├Áes da ind├║stria e trouxe grandes evolu├º├Áes em rela├º├úo ao seu antecessor. Entre os principais destaques est├úo:\r\nEmpunhadura Dupla: Permite que o jogador segure duas armas ao mesmo tempo (como duas pistolas ou duas submetralhadoras) para causar mais dano.\r\nIntelig├¬ncia Artificial Avan├ºada: Inimigos tomam decis├Áes t├íticas imprevis├¡veis, fugindo, se escondendo ou flanqueando o jogador.\r\nVe├¡culos Pilot├íveis: Grande variedade de ve├¡culos humanos e alien├¡genas dispon├¡veis para combate terrestre e a├®reo",
+    "preco": "0.00",
+    "gratuito": true,
+    "destaque": false,
+    "imagem": "jogos/images_halo_2.jfif",
+    "imagem_url": null,
+    "arquivo_instalacao": "downloads/Halo_2_Opti_V2.7z",
+    "link_download": "https://drive.google.com/uc?export=download&id=1bsEwnTrVBFpLUjg98PcpU5QJw3bfEHLP",
+    "categoria": 1,
+    "desenvolvedor": "Bungie, Xbox Game Studios, Pi Studios",
+    "ano_lancamento": 2004,
+    "avaliacao": "5.0",
+    "data_criacao": "2026-06-21T19:13:24.272Z",
+    "estoque": 0,
+    "estoque_minimo": 5
+  }
+},
+{
+  "model": "games.jogo",
+  "pk": 3,
+  "fields": {
+    "titulo": "Manhunt",
+    "descricao": "Manhunt ├® um jogo eletr├┤nico de stealth (furtividade) e terror psicol├│gico desenvolvido pela Rockstar North. A hist├│ria segue James Earl Cash, um prisioneiro no corredor da morte for├ºado a participar de um reality show de assassinatos s├ídicos em Carcer City para sobreviver.\r\n\r\nA Hist├│ria de James Earl CashO protagonista acorda acreditando que foi executado por inje├º├úo letal. No entanto, ele ├® resgatado e for├ºado a atuar em filmes snuff (filmes de matan├ºa real) por um ex-diretor corrupto. O objetivo do jogador ├® guiar Cash atrav├®s de 20 n├¡veis (cenas), eliminando membros de gangues e ca├ºadores para conseguir sua liberdade.\r\n\r\nMec├ónicas de JogoO foco do jogo n├úo ├® o combate direto, mas sim o uso de furtividade e emboscadas. Os jogadores devem se esconder em sombras e cantos, atrair inimigos com ru├¡dos (como jogar pedras ou garrafas) e elimin├í-los pelas costas.Execu├º├Áes: O sistema de execu├º├Áes ├® a marca registrada do jogo. Ao perseguir um inimigo silenciosamente por tempo suficiente, o jogador realiza um golpe letal que varia em tr├¬s n├¡veis de brutalidade e viol├¬ncia gr├ífica.Arsenal: Para combater os capangas, voc├¬ utiliza os mais variados itens, desde sacolas pl├ísticas e cacos de vidro at├® armas de fogo encontradas pelo caminho.",
+    "preco": "0.00",
+    "gratuito": true,
+    "destaque": false,
+    "imagem": "jogos/manhunt_imagem.jfif",
+    "imagem_url": null,
+    "arquivo_instalacao": "",
+    "link_download": "https://drive.google.com/file/d/1UgubwFtEkdH7lkwCIn1W6VIXCNli02qE/view?usp=sharing",
+    "categoria": 3,
+    "desenvolvedor": "Rockstar Games, Rockstar North",
+    "ano_lancamento": 2003,
+    "avaliacao": "4.0",
+    "data_criacao": "2026-06-23T22:07:07.717Z",
+    "estoque": 0,
+    "estoque_minimo": 5
+  }
+},
+{
+  "model": "games.jogo",
+  "pk": 4,
+  "fields": {
+    "titulo": "Balatro",
+    "descricao": "O Balatro ├® um jogo indie que mistura p├┤quer com o estilo roguelike de constru├º├úo de baralho (deckbuilder). O objetivo principal ├® usar combina├º├Áes tradicionais de cartas (como pares, trincas e flushes) para alcan├ºar pontua├º├Áes cada vez maiores e superar metas de fichas em diferentes rodadas. \r\n\r\nEle se destaca por adicionar cartas especiais chamadas Coringas (Jokers), que quebram as regras cl├íssicas e criam combos absurdos com multiplicadores de pontos. Entre as rodadas, voc├¬ visita uma loja para comprar novos Coringas, cartas de tar├┤ (que modificam seu baralho) e cartas de planeta (que melhoram o n├¡vel das suas m├úos). ├ë um jogo conhecido por sua mec├ónica viciante, onde cada partida ├® ├║nica.",
+    "preco": "0.00",
+    "gratuito": true,
+    "destaque": true,
+    "imagem": "",
+    "imagem_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRM2cwrBN_ZAllrIGtDMgEKX6JOi4NP0D-4BFU05FnXcQ&s=10",
+    "arquivo_instalacao": "",
+    "link_download": "https://drive.google.com/uc?export=download&id=1nKO88beIQnJNY1AgJvO6T2N3QMZQSMcf",
+    "categoria": 2,
+    "desenvolvedor": "LocalThunk",
+    "ano_lancamento": 2024,
+    "avaliacao": "4.7",
+    "data_criacao": "2026-07-02T20:54:01.017Z",
+    "estoque": 0,
+    "estoque_minimo": 5
+  }
+},
+{
+  "model": "games.jogo",
+  "pk": 5,
+  "fields": {
+    "titulo": "Celeste",
+    "descricao": "Celeste ├® um jogo indie de plataforma aclamado pela cr├¡tica, lan├ºado em 2018 pela Extremely OK Games. Os jogadores controlam Madeline em sua jornada para escalar uma montanha m├¡stica . O game foca em uma narrativa profunda de autodescoberta e supera├º├úo dos pr├│prios dem├┤nios internos, mesclando desafios precisos com uma trilha sonora marcante\r\n\r\nJogabilidade e Mec├ónicasO jogo ├® famoso por sua mec├ónica de movimenta├º├úo fluida e precisa: correr, pular e o movimento de investida (dash) no ar s├úo a base para superar os obst├ículos. Os desafios ficam cada vez mais complexos, exigindo racioc├¡nio r├ípido e reflexo.Mais de 700 telas: Divididas em cap├¡tulos, com ├íreas secretas e n├¡veis de dificuldade brutais (como os Lados B) .Colecion├íveis: Morangos e fitas cassete est├úo espalhados pelo mapa e servem para testar os limites do jogador ou habilitar novas ├íreas.Acessibilidade: Conta com um modo de assist├¬ncia que permite ajustar a velocidade do jogo, pulos infinitos ou at├® invencibilidade para quem quer apenas curtir a hist├│ria.\r\n\r\nHist├│ria e Tem├íticaA narrativa acompanha o desejo de Madeline de \"respirar novos ares\" e provar a si mesma que ├® capaz de vencer a Montanha Celeste . Durante a subida, ela precisa lidar com ataques de p├ónico, ansiedade e uma vers├úo sombria e manipuladora de si mesma (conhecida como \"Badeline\").",
+    "preco": "0.00",
+    "gratuito": true,
+    "destaque": false,
+    "imagem": "jogos/images_3.jpg",
+    "imagem_url": null,
+    "arquivo_instalacao": "",
+    "link_download": "https://drive.google.com/uc?export=download&id=1gzNMP-ZO-p8i2m25jVhPS2kDPpQIh4x7",
+    "categoria": 2,
+    "desenvolvedor": "Matt Makes Games, extremely ok games ltd",
+    "ano_lancamento": 2018,
+    "avaliacao": "4.6",
+    "data_criacao": "2026-07-02T21:00:53.609Z",
+    "estoque": 0,
+    "estoque_minimo": 5
+  }
+},
+{
+  "model": "games.jogo",
+  "pk": 6,
+  "fields": {
+    "titulo": "Stardew Valley",
+    "descricao": "Stardew Valley ├® um RPG de simula├º├úo de vida no campo criado por Eric \"ConcernedApe\" Barone. Voc├¬ herda a fazenda do seu av├┤ e deve gerenciar planta├º├Áes, criar animais, minerar, pescar e interagir com os moradores da Vila Pelicano, podendo at├® mesmo se casar e construir uma fam├¡lia.\r\n\r\nAtividades Principais\r\nO mundo do Vale ├® gigantesco e voc├¬ pode jogar no seu pr├│prio ritmo. As principais atividades incluem:\r\n\r\nAgricultura e Pecu├íria: Plante culturas de acordo com a esta├º├úo do ano e crie animais como vacas, galinhas, porcos e ovelhas.\r\n\r\nPesca e Coleta: Pesque em diversos lagos e rios, e colete itens na natureza para ganhar dinheiro r├ípido nos primeiros dias.\r\n\r\nMinera├º├úo: Explore cavernas escuras, lute contra monstros e colete min├®rios valiosos como cobre, ferro e ouro para melhorar seus equipamentos.\r\n\r\nSocializa├º├úo:  Converse com os mais de 30 habitantes da Vila, d├¬ presentes e participe de festivais sazonais. Voc├¬ pode se casar com v├írios dos personagens solteiros da cidade.",
+    "preco": "0.00",
+    "gratuito": true,
+    "destaque": false,
+    "imagem": "jogos/images_6.jpg",
+    "imagem_url": null,
+    "arquivo_instalacao": "",
+    "link_download": "https://drive.google.com/uc?export=download&id=1U19YwNy13f0KzeTdg6mA8g_X3W4b_1q5",
+    "categoria": 2,
+    "desenvolvedor": "ConcernedApe",
+    "ano_lancamento": 2016,
+    "avaliacao": "4.6",
+    "data_criacao": "2026-07-03T18:21:11.128Z",
+    "estoque": 0,
+    "estoque_minimo": 5
+  }
+},
+{
+  "model": "games.jogo",
+  "pk": 7,
+  "fields": {
+    "titulo": "Terraria",
+    "descricao": "Terraria  ├® um jogo de a├º├úo e aventura em mundo aberto com foco em minera├º├úo, constru├º├úo e combate . O jogador explora biomas gerados aleatoriamente , enfrenta chef├Áes , coleta recursos para criar milhares de itens  e desenvolve uma base para abrigar NPCs.\r\n\r\nO t├¡tulo ├® conhecido pelo seu enorme volume de conte├║do. Voc├¬ pode passar o tempo construindo vilarejos complexos, explorando a vastid├úo dos mapas, pescando ou lutando contra eventos clim├íticos e invas├Áes . O ciclo cont├¡nuo de explora├º├úo, coleta de materiais para melhorias e derrota de novos desafios ├® a base de sua popularidade duradoura.\r\n\r\nSe voc├¬ quer entender como dar seus primeiros passos, como coletar recursos e encontrar seus primeiros itens logo ao cair no mundo, este v├¡deo pode te ajudar:",
+    "preco": "0.00",
+    "gratuito": true,
+    "destaque": true,
+    "imagem": "jogos/images_7.jpg",
+    "imagem_url": null,
+    "arquivo_instalacao": "",
+    "link_download": "https://drive.google.com/uc?export=download&id=1EL2Rdy0T1wajjWOe2CQueTx9ayBcfWy1",
+    "categoria": 2,
+    "desenvolvedor": "Re-Logic",
+    "ano_lancamento": 2011,
+    "avaliacao": "4.5",
+    "data_criacao": "2026-07-03T18:34:45.620Z",
+    "estoque": 0,
+    "estoque_minimo": 5
+  }
+},
+{
+  "model": "games.jogo",
+  "pk": 8,
+  "fields": {
+    "titulo": "Undertale",
+    "descricao": "Undertale ├® um RPG aclamado lan├ºado em 2015, onde voc├¬ controla uma crian├ºa que cai em um mundo subterr├óneo de monstros. O grande diferencial do jogo ├® que voc├¬ n├úo precisa lutar: ├® poss├¡vel resolver conflitos e fazer amizade com os inimigos atrav├®s do di├ílogo, e cada escolha moral altera o final da hist├│ria\r\n\r\nA L├│gica do JogoA premissa central ├® subverter a f├│rmula cl├íssica dos jogos eletr├┤nicos. Em vez de subir de n├¡vel matando tudo o que v├¬ pela frente, o jogador ├® encorajado a ter empatia. O sistema de combate exige desvios r├ípidos (como em jogos de tiro) e voc├¬ pode conversar, poupar ou at├® mesmo fugir dos monstros.",
+    "preco": "0.00",
+    "gratuito": true,
+    "destaque": false,
+    "imagem": "",
+    "imagem_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTilIjlt3JH8UJQ0DXtXMcG2_5aoAHaUOJ2wbUffMY9_w&s=10",
+    "arquivo_instalacao": "",
+    "link_download": "https://drive.google.com/uc?export=download&id=1Drs_W4rX32hO5g5EY2dNjIjVGuZfgo6k",
+    "categoria": 2,
+    "desenvolvedor": "Toby Fox",
+    "ano_lancamento": 2015,
+    "avaliacao": "4.7",
+    "data_criacao": "2026-07-03T18:45:12.680Z",
+    "estoque": 0,
+    "estoque_minimo": 5
+  }
+},
+{
+  "model": "games.jogo",
+  "pk": 9,
+  "fields": {
+    "titulo": "Grand Theft Auto III",
+    "descricao": "Grand Theft Auto III (GTA 3), lan├ºado em 2001 pela Rockstar Games, revolucionou a ind├║stria ao trazer a franquia para um ambiente 3D totalmente explor├ível . Situado na fict├¡cia Liberty City , o jogo acompanha Claude, um criminoso silencioso que busca vingan├ºa contra sua ex-namorada, Catalina, ap├│s ser tra├¡do em um assalto a banco.\r\n\r\nO Enredo e Personagens:\r\n\r\nA jornada de vingan├ºa de Claude cruza os caminhos de v├írias fac├º├Áes do submundo, incluindo a M├ífia, a Yakuza e o Cartel Colombiano . Ao longo das miss├Áes, o protagonista trabalha para diferentes chefes at├® finalmente conseguir confrontar Catalina e salvar Maria Latore.\r\n\r\nPrincipais Destaques:\r\n\r\nMundo Aberto Revolucion├írio: Foi um dos primeiros jogos a oferecer total liberdade de explora├º├úo, permitindo dirigir ve├¡culos, andar a p├® e interagir livremente com a cidade.\r\n\r\nTrilha Sonora Marcante: A s├®rie introduziu esta├º├Áes de r├ídio ic├┤nicas que tocam m├║sicas de diferentes g├¬neros e propagandas com humor ├ícido.\r\n\r\nLegado: O sucesso consolidou a base que a Rockstar usou para desenvolver outros cl├íssicos, como GTA: Vice City e GTA: San Andreas.",
+    "preco": "0.00",
+    "gratuito": true,
+    "destaque": false,
+    "imagem": "jogos/images_8.jpg",
+    "imagem_url": null,
+    "arquivo_instalacao": "",
+    "link_download": "https://drive.google.com/uc?export=download&id=1v4H3Y6yg50Ni-PDGkg0twUghOJR6R0Mx",
+    "categoria": 3,
+    "desenvolvedor": "Rockstar North, Grove Street Games",
+    "ano_lancamento": 2001,
+    "avaliacao": "3.6",
+    "data_criacao": "2026-07-03T20:20:58.585Z",
+    "estoque": 0,
+    "estoque_minimo": 5
+  }
+},
+{
+  "model": "games.jogo",
+  "pk": 10,
+  "fields": {
+    "titulo": "Grand Theft Auto: Vice City",
+    "descricao": "Grand Theft Auto: Vice City ├® um cl├íssico jogo de a├º├úo em mundo aberto lan├ºado originalmente em 2002 pela Rockstar Games, ambientado em uma vers├úo fict├¡cia de Miami nos anos 1980 . A trama acompanha Tommy Vercetti em sua jornada de trai├º├úo e vingan├ºa para se tornar o maior bar├úo do crime local.\r\n\r\nEnredo e PersonagensO protagonista, dublado pelo ator Ray Liotta , sai da pris├úo ap├│s 15 anos e ├® enviado pela m├ífia de Liberty City para realizar uma grande negocia├º├úo de drogas . Ap├│s ser v├¡tima de uma emboscada e perder o dinheiro e a mercadoria, Tommy precisa recuperar a d├¡vida, descobrir os traidores e conquistar seu espa├ºo no submundo .\r\n\r\n\r\nCidade e AtmosferaVice City ├® uma metr├│pole tropical, brilhante e cheia de neons, praias e p├óntanos, fortemente inspirada na est├®tica de filmes como Scarface e da s├®rie Miami Vice . A trilha sonora ic├┤nica, recheada de hits dos anos 80, e o ambiente com gangues locais (como cubanos e haitianos)  ajudam a compor a imers├úo",
+    "preco": "0.00",
+    "gratuito": true,
+    "destaque": false,
+    "imagem": "jogos/images_9.jpg",
+    "imagem_url": null,
+    "arquivo_instalacao": "",
+    "link_download": "https://drive.google.com/uc?export=download&id=1vH6vOfmuHQa47u4LCjDsZ5-Lua4_AZG7",
+    "categoria": 3,
+    "desenvolvedor": "Rockstar North",
+    "ano_lancamento": 2002,
+    "avaliacao": "4.5",
+    "data_criacao": "2026-07-03T20:32:58.500Z",
+    "estoque": 0,
+    "estoque_minimo": 5
+  }
+},
+{
+  "model": "games.jogo",
+  "pk": 11,
+  "fields": {
+    "titulo": "Pro Evolution Soccer 2013",
+    "descricao": "O PES 2013 (Pro Evolution Soccer 2013) ├® um cl├íssico jogo de simula├º├úo de futebol lan├ºado pela Konami, aclamado por sua jogabilidade fluida e equilibrada . Ele se destaca por tr├¬s pilares: o PES FullControl (controle manual total de passes e chutes), o Player ID (movimentos e estilos fi├®is aos craques reais) e a IA Proativa, que trouxe maior realismo ├á movimenta├º├úo t├ítica.\r\n\r\nLiberdade Total: Os jogadores ganharam autonomia para definir a for├ºa e a dire├º├úo exatas dos chutes, al├®m de dominar a bola e driblar de forma personalizada\r\n\r\nIdentidade Real: Craques como Cristiano Ronaldo (astro da capa), Messi e Neymar possu├¡am anima├º├Áes, comemora├º├Áes e corridas id├¬nticas ├ás da vida real.\r\n\r\nGoleiros Aprimorados: O sistema de defesa dos goleiros foi reformulado, incluindo novas anima├º├Áes de reposi├º├úo r├ípida e defesas dif├¡ceis .\r\n\r\nModos Cl├íssicos: Al├®m de partidas r├ípidas, o game conta com a adorada Master Liga e o modo Rumo ao Estrelato (onde voc├¬ controla um ├║nico jogador)",
+    "preco": "5.00",
+    "gratuito": false,
+    "destaque": false,
+    "imagem": "",
+    "imagem_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSY7w9AiJRe0s2Ezv6K_0AZC8q0sK3E8WZ6-vwyd-MfcA&s=10",
+    "arquivo_instalacao": "",
+    "link_download": "https://drive.google.com/uc?export=download&id=1gQW_JHcK9N1OY90376F2pp2NXr20a5Mk",
+    "categoria": 5,
+    "desenvolvedor": "Konami Computer Entertainment Tokyo",
+    "ano_lancamento": 2012,
+    "avaliacao": "4.6",
+    "data_criacao": "2026-07-03T20:40:16.178Z",
+    "estoque": 0,
+    "estoque_minimo": 5
+  }
+},
+{
+  "model": "games.jogo",
+  "pk": 12,
+  "fields": {
+    "titulo": "Final Fantasy V",
+    "descricao": "Final Fantasy V ├® um cl├íssico RPG da Square Enix lan├ºado originalmente em 1992 para Super Famicom. A trama acompanha o andarilho Bartz e seus companheiros que, ao investigarem a queda de um meteoro, descobrem que precisam salvar os quatro cristais elementais que controlam o mundo. O grupo deve impedir o mago maligno Exdeath de corromper os cristais e usar o poder do Vazio.\r\n\r\nO grande diferencial do jogo ├® o seu aclamado sistema de profiss├Áes (Jobs), que permite customizar livremente as habilidades, magias e estat├¡sticas de cada um dos quatro her├│is da equipe. Os jogadores combinam diferentes classes para criar estrat├®gias ├║nicas em combate.\r\n\r\nA hist├│ria de Final Fantasy V gira em torno de quatro Cristais elementais (Vento, ├ügua, Fogo e Terra) que mant├¬m o equil├¡brio do mundo. Quando o Cristal do Vento perde energia e racha, um andarilho chamado Bartz e seu Chocobo, Boko, investigam um meteoro ca├¡do e unem for├ºas com a Princesa Lenna e o velho Galuf.",
+    "preco": "0.00",
+    "gratuito": true,
+    "destaque": true,
+    "imagem": "",
+    "imagem_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSa3JaKbEjDDdaeDmNhsgI71OZr059r691qVZ9CDf35fw&s=10",
+    "arquivo_instalacao": "",
+    "link_download": "https://drive.google.com/uc?export=download&id=1ZwqLzImCqBjgV0IiimEjSWKTXoBR21EI",
+    "categoria": 4,
+    "desenvolvedor": "Square Enix",
+    "ano_lancamento": 1992,
+    "avaliacao": "4.8",
+    "data_criacao": "2026-07-07T17:05:15.910Z",
+    "estoque": 0,
+    "estoque_minimo": 5
+  }
+},
+{
+  "model": "games.jogo",
+  "pk": 13,
+  "fields": {
+    "titulo": "Dark Souls",
+    "descricao": "Dark Souls ├® um RPG de a├º├úo sombrio conhecido por sua alta dificuldade e mundo interligado. Voc├¬ joga como um morto-vivo amaldi├ºoado que escapa de um asilo e viaja at├® o reino de Lordran, enfrentando chefes brutais e desvendando uma narrativa profunda sobre a decad├¬ncia do fogo e a ascens├úo da escurid├úo.\r\n\r\nA Origem e o Mundo de LordranA hist├│ria se passa em um mundo que j├í foi dominado por drag├Áes eternos, at├® que o fogo surgiu na escurid├úo, criando as Almas dos Lordes e permitindo que seres mortais desafiassem os drag├Áes. Voc├¬ assume o papel de um dos \"marcados pelo Sinal Negro\" ÔÇö mortos-vivos condenados a vagar at├® a perdi├º├úo. Sua jornada consiste em explorar Lordran, um mapa interconectado repleto de atalhos, calabou├ºos e perigos constantes.\r\n\r\nJogabilidade e DesafioO t├¡tulo ├® famoso por seu sistema de combate deliberado e estrat├®gico, onde cada movimento deve ser calculado. Os jogadores devem aprender com a derrota e dominar o tempo de esquiva, bloqueio e ataque. O jogo tamb├®m apresenta um sistema online ├║nico, permitindo deixar mensagens para outros jogadores, cooperar em batalhas contra chefes ou invadir o mundo de outros aventureiros.",
+    "preco": "15.00",
+    "gratuito": false,
+    "destaque": true,
+    "imagem": "",
+    "imagem_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRw7mGIqzsJxdnP9fw0ShSfZC6loGwLa6DvYPRFl3FQ4w&s=10",
+    "arquivo_instalacao": "",
+    "link_download": "https://drive.google.com/uc?export=download&id=1W9vh5UpmvD2Bit6LhGZes_Wc73euS7sF",
+    "categoria": 4,
+    "desenvolvedor": "FromSoftware",
+    "ano_lancamento": 2011,
+    "avaliacao": "4.7",
+    "data_criacao": "2026-07-07T17:15:57.236Z",
+    "estoque": 0,
+    "estoque_minimo": 5
+  }
+},
+{
+  "model": "games.jogo",
+  "pk": 14,
+  "fields": {
+    "titulo": "Dead Cells",
+    "descricao": "Dead Cells ├® um jogo de a├º├úo fren├®tico em 2D que mistura os g├¬neros roguelike e Metroidvania (frequentemente chamado de Roguevania). Sem pontos de salvamento, os jogadores assumem o controle de uma criatura amorfa que possui cad├íveres e deve lutar para escapar de uma ilha mutante amaldi├ºoada.\r\n\r\nDestaques Principais:\r\n\r\nA├º├úo e Combate: Oferece combates dif├¡ceis, por├®m justos. A cada partida, voc├¬ pode empunhar combina├º├Áes variadas de espadas, arcos, escudos e armadilhas, al├®m de usar magias.\r\n\r\nProgress├úo e Morte Permanente: Morrer faz voc├¬ perder seus equipamentos tempor├írios, mas voc├¬ mant├®m habilidades, melhorias de mapa e itens desbloqueados permanentemente. Derrotar inimigos rende \"c├®lulas\" usadas para comprar upgrades.\r\n\r\nMapas em Constante Mudan├ºa: Os cen├írios s├úo gerados proceduralmente e oferecem uma grande variedade de rotas e biomas interconectados, incentivando a explora├º├úo repetida.",
+    "preco": "0.00",
+    "gratuito": true,
+    "destaque": false,
+    "imagem": "",
+    "imagem_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTmcZ8k_2CZQxYtRbx8k5Eh_S3Z_TSw1b1p2ymad5EHw&s=10",
+    "arquivo_instalacao": "",
+    "link_download": "https://drive.google.com/uc?export=download&id=1IU3I_YmRVfBJgdhKyghxi9Q3SK8lS3Hn",
+    "categoria": 2,
+    "desenvolvedor": "Motion-Twin, Playdigious",
+    "ano_lancamento": 2018,
+    "avaliacao": "4.5",
+    "data_criacao": "2026-07-07T17:36:17.891Z",
+    "estoque": 0,
+    "estoque_minimo": 5
+  }
+},
+{
+  "model": "games.jogo",
+  "pk": 15,
+  "fields": {
+    "titulo": "Brotato",
+    "descricao": "Brotato ├® um jogo de tiro estilo roguelite e bullet hell em que voc├¬ controla uma batata lutando contra hordas de alien├¡genas. Capaz de empunhar at├® seis armas simultaneamente, o jogador deve sobreviver a ondas de inimigos, coletar materiais e comprar equipamentos na loja entre os confrontos para criar uma build poderosa.\r\n\r\nMec├ónicas Principais e Jogabilidade\r\n\r\nSistema de Combate: Por padr├úo, a batata ataca automaticamente os inimigos mais pr├│ximos, permitindo que voc├¬ foque totalmente na esquiva. Tamb├®m existe a op├º├úo de mira manual.\r\n\r\nConstru├º├úo de Personagens: Voc├¬ pode escolher entre dezenas de personagens diferentes (como \"um bra├ºo s├│\", \"sortudo\" ou \"mago\"), cada um com habilidades, vantagens e fraquezas ├║nicas.\r\n\r\nA Loja e Evolu├º├úo: As partidas duram menos de 30 minutos. Entre as ondas, voc├¬ usa o dinheiro coletado para comprar e combinar armas (de espadas a lan├ºas-chamas) e itens que melhoram seus atributos.",
+    "preco": "0.00",
+    "gratuito": true,
+    "destaque": false,
+    "imagem": "",
+    "imagem_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEBjJ-HtM1aWt58ZIC83Vzf6_2XRLv13ToT8dCyKJ1ng&s=10",
+    "arquivo_instalacao": "",
+    "link_download": "https://drive.google.com/uc?export=download&id=1keadiCLipYLSl9UcRwCZERGbj9tD2lDd",
+    "categoria": 2,
+    "desenvolvedor": "blobfish, seaven studio",
+    "ano_lancamento": 2022,
+    "avaliacao": "4.6",
+    "data_criacao": "2026-07-10T20:08:40.474Z",
+    "estoque": 0,
+    "estoque_minimo": 5
+  }
+},
+{
+  "model": "games.jogo",
+  "pk": 16,
+  "fields": {
+    "titulo": "No, I'm not a Human",
+    "descricao": "No, I'm Not a Human ├® um jogo de terror psicol├│gico e simula├º├úo lan├ºado em setembro de 2025 para Windows. Desenvolvido pelo est├║dio russo Trioskaz e publicado pela Critical Reflex, o game coloca o jogador isolado em sua casa durante o apocalipse, onde precisa decidir quem pode abrigar durante a noite.\r\n\r\nO enredo se passa em um cen├írio onde o sol sofreu uma erup├º├úo extrema, tornando a superf├¡cie inabit├ível durante o dia devido ao calor letal. Durante a noite, criaturas misteriosas conhecidas como \"Visitantes\" emergem e tentam se passar por humanos para ganhar abrigo e atacar o protagonista\r\n\r\nA mec├ónica mistura suspense e investiga├º├úo, exigindo que voc├¬ gerencie seus recursos diurnos para analisar os h├│spedes e decidir quem ├® humano e quem deve ser eliminado. O jogo oferece m├║ltiplos finais, dependendo das suas escolhas e de quem voc├¬ decide acolher ou assassinar.",
+    "preco": "20.00",
+    "gratuito": false,
+    "destaque": false,
+    "imagem": "",
+    "imagem_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqEplg56LA_8cKZ8JFxgzpNYPVRcOPG0u7N7aMr5LHlQ&s=10",
+    "arquivo_instalacao": "",
+    "link_download": "https://drive.google.com/uc?export=download&id=1w84pRrwBrYp1jBxIOTRg0rUUfpT9Ia-P",
+    "categoria": null,
+    "desenvolvedor": "Trioskaz",
+    "ano_lancamento": 2025,
+    "avaliacao": "4.5",
+    "data_criacao": "2026-07-13T21:03:21.873Z",
+    "estoque": 0,
+    "estoque_minimo": 5
+  }
+},
+{
+  "model": "games.jogo",
+  "pk": 17,
+  "fields": {
+    "titulo": "Resident Evil 2",
+    "descricao": "Lan├ºado em 1998 para PlayStation, Resident Evil 2 ├® um cl├íssico survival horror. A hist├│ria se passa em Raccoon City, tomada pelo T-v├¡rus da Umbrella Corporation. O jogador controla o policial novato Leon S. Kennedy e a estudante Claire Redfield, que buscam sobreviver a zumbis e criaturas mutantes.\r\n\r\nEnredo e Jogabilidade:\r\n\r\nA trama se desenrola dois meses ap├│s o incidente na mans├úo do primeiro jogo. Ao chegarem ├á cidade em setembro de 1998, Leon e Claire se separam e devem encontrar uma rota de fuga. O jogo se destaca pelo \"Sistema Zapping\" (ou de Troca de Personagens), onde as a├º├Áes em uma campanha afetam a hist├│ria da outra, oferecendo diferentes perspectivas e finais.\r\n\r\nPara sobreviver, os jogadores precisam gerenciar recursos escassos, como muni├º├úo e ervas de cura, resolver quebra-cabe├ºas no Departamento de Pol├¡cia de Raccoon e enfrentar chefes desafiadores.",
+    "preco": "5.00",
+    "gratuito": false,
+    "destaque": true,
+    "imagem": "",
+    "imagem_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7Y1RSn0KE1_XzXcWfNExCACZa9039BEX8EyfBgGqCHg&s=10",
+    "arquivo_instalacao": "",
+    "link_download": "https://drive.google.com/uc?export=download&id=1nY9CnAs2UgCAg1DsVyKOreiNBEqxM6a4",
+    "categoria": null,
+    "desenvolvedor": "Capcom",
+    "ano_lancamento": 1998,
+    "avaliacao": "4.5",
+    "data_criacao": "2026-07-14T17:34:23.661Z",
+    "estoque": 0,
+    "estoque_minimo": 5
+  }
+},
+{
+  "model": "games.jogo",
+  "pk": 18,
+  "fields": {
+    "titulo": "Super Meat Boy",
+    "descricao": "Super Meat Boy ├® um desafiador jogo de plataforma 2D onde voc├¬ controla um cubo de carne animado. O objetivo ├® resgatar sua namorada, Bandage Girl (feita de ataduras), das garras do vil├úo Dr. Fetus, um feto maligno de smoking. O jogo destaca-se pela alta dificuldade, exigindo reflexos r├ípidos e precis├úo.\r\n\r\nMec├ónicas e Estilo de Jogo:\r\n\r\nO cl├íssico da Team Meat ├® famoso por seu design de fases complexo, por├®m com controles simples. O jogador atravessa mais de 300 n├¡veis divididos em v├írios mundos, enquanto desvia de serras el├®tricas, agulhas e abismos.\r\n\r\nOs principais destaques incluem:\r\n\r\nMortes Constantes: O jogo foi feito para ser dif├¡cil e perdoar poucos erros. Cada morte ├® instant├ónea, e ao passar de fase, o jogo exibe o replay de todas as suas tentativas simultaneamente.\r\n\r\nFases Retr├┤ e Desafios: Ao terminar uma fase rapidamente, o jogador desbloqueia o \"Dark World\" (vers├úo mais dif├¡cil da fase). H├í tamb├®m fases secretas e colecion├íveis (bandagens) que liberam outros personagens.\r\n\r\nInflu├¬ncia Cl├íssica: O t├¡tulo adota a dificuldade implac├ível de jogos cl├íssicos da era 8-bits e 16-bits.",
+    "preco": "0.00",
+    "gratuito": true,
+    "destaque": false,
+    "imagem": "",
+    "imagem_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7eTKS19tll4L97yd5-K8icPMOqVjKwmNcGZ4RGMidew&s=10",
+    "arquivo_instalacao": "",
+    "link_download": "https://drive.google.com/uc?export=download&id=1LNpaMXRWS62k2JMCyg_n5NKUZ3lz8yDa",
+    "categoria": null,
+    "desenvolvedor": "team meat, BlitWorks",
+    "ano_lancamento": 2010,
+    "avaliacao": "4.3",
+    "data_criacao": "2026-07-14T17:40:53.025Z",
+    "estoque": 0,
+    "estoque_minimo": 5
+  }
+},
+{
+  "model": "games.jogo",
+  "pk": 19,
+  "fields": {
+    "titulo": "Sonic the Hedgehog 1e 2",
+    "descricao": "Sonic the Hedgehog\r\n(1991)O primeiro t├¡tulo estabeleceu a f├│rmula cl├íssica: Sonic corre contra o tempo para impedir os planos do cientista malvado Dr. Robotnik (Eggman), que est├í capturando animais indefesos para transform├í-los em rob├┤s. O jogador deve coletar an├®is que funcionam como prote├º├úo e passar pelas famosas zonas com loopings, como a ic├┤nica Green Hill Zone.\r\n\r\nSonic the Hedgehog 2 (1992)\r\n\r\nLan├ºado um ano depois, o segundo jogo acelerou ainda mais o ritmo e introduziu Miles \"Tails\" Prower, a raposa de duas caudas. Pela primeira vez, os jogadores podiam jogar em modo cooperativo, onde um segundo jogador controla o Tails. O jogo tamb├®m trouxe o movimento Spin Dash (o giro r├ípido para ganhar impulso) e um modo competitivo para dois jogadores, al├®m da possibilidade de se transformar em Super Sonic ao coletar as sete Esmeraldas do Caos.",
+    "preco": "0.00",
+    "gratuito": true,
+    "destaque": false,
+    "imagem": "jogos/foto_capa_sonic.png",
+    "imagem_url": null,
+    "arquivo_instalacao": "",
+    "link_download": "https://drive.google.com/uc?export=download&id=1qk8l3bD6fp3gUdQJai25jDTrc8u8mWhu",
+    "categoria": null,
+    "desenvolvedor": "Sega",
+    "ano_lancamento": 2009,
+    "avaliacao": "0.0",
+    "data_criacao": "2026-07-14T18:36:54.199Z",
+    "estoque": 0,
+    "estoque_minimo": 5
+  }
+},
+{
+  "model": "games.jogo",
+  "pk": 20,
+  "fields": {
+    "titulo": "The Sims",
+    "descricao": "The Sims 1 ├® um cl├íssico jogo de simula├º├úo de vida lan├ºado em 2000 pela Maxis e Electronic Arts. Ele permite criar pessoas virtuais (os \"Sims\"), construir casas, gerenciar carreiras e controlar as necessidades di├írias dos personagens em um ambiente suburbano aberto e sem objetivos definidos.\r\n\r\nCaracter├¡sticas Principais\r\n\r\nGerenciamento de Necessidades: O foco do jogo ├® manter os Sims felizes e saud├íveis, gerenciando itens como fome, energia, higiene, divers├úo e conforto.\r\n\r\nModo Constru├º├úo e Compra: Voc├¬ pode projetar casas do zero ou comprar lotes mobiliados. O jogo exige estrat├®gia financeira, pois pagar as contas e evitar a fal├¬ncia s├úo desafios reais.\r\n\r\nPersonalidade e Rela├º├Áes: Os personagens t├¬m tra├ºos de personalidade pr├│prios, o que afeta suas intera├º├Áes sociais, amizades e romances.",
+    "preco": "0.00",
+    "gratuito": true,
+    "destaque": false,
+    "imagem": "",
+    "imagem_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqryqo8h8hplYq16vH5xmbz-P2kpPfL9cPL5HC2F2l4A&s=10",
+    "arquivo_instalacao": "",
+    "link_download": "https://drive.google.com/uc?export=download&id=1vRVbZ1l2hDsqZ761nHbJk4EWuklXUDVI",
+    "categoria": null,
+    "desenvolvedor": "Maxis",
+    "ano_lancamento": 2000,
+    "avaliacao": "4.0",
+    "data_criacao": "2026-07-14T18:42:50.987Z",
+    "estoque": 0,
+    "estoque_minimo": 5
+  }
+},
+{
+  "model": "games.jogo",
+  "pk": 21,
+  "fields": {
+    "titulo": "Forager",
+    "descricao": "Forager ├® um jogo de aventura, mundo aberto e cria├º├úo em 2D, inspirado em t├¡tulos como Stardew Valley, Terraria e The Legend of Zelda. O jogador come├ºa em uma pequena ilha com uma picareta e o objetivo de coletar recursos, expandir seu territ├│rio, construir bases e evoluir suas habilidades.\r\n\r\nPrincipais Mec├ónicas e Objetivos\r\n\r\nColeta e Fabrica├º├úo: Voc├¬ coleta madeira, pedras e min├®rios para criar desde ferramentas b├ísicas at├® estruturas industriais complexas.\r\n\r\nExpans├úo de Territ├│rio: Com o ouro acumulado, voc├¬ compra novas ilhas. Cada nova ├írea desbloqueia biomas, quebra-cabe├ºas, segredos, NPCs e masmorras.\r\n\r\nProgress├úo de N├¡vel: Ao realizar a├º├Áes no jogo, voc├¬ ganha experi├¬ncia e pontos para gastar em uma extensa ├írvore de habilidades, que permite personalizar seu estilo de jogo (foco em magia, economia, coleta ou combate).\r\n\r\nMasmorras e Chefes: Existem ├íreas subterr├óneas cheias de inimigos e puzzles. Derrotar os chefes concede itens raros e valiosos.",
+    "preco": "7.00",
+    "gratuito": false,
+    "destaque": false,
+    "imagem": "",
+    "imagem_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaU_ZcCdTgZ519I3iveLgEymVYILa-KdlZah_f-gWoCw&s=10",
+    "arquivo_instalacao": "",
+    "link_download": "https://drive.google.com/uc?export=download&id=1M703RmLPYB7BV5HcKSvUSCiMOlC6K-ur",
+    "categoria": null,
+    "desenvolvedor": "HopFrog",
+    "ano_lancamento": 2019,
+    "avaliacao": "4.4",
+    "data_criacao": "2026-07-14T19:06:18.971Z",
+    "estoque": 0,
+    "estoque_minimo": 5
+  }
+},
+{
+  "model": "games.jogo",
+  "pk": 22,
+  "fields": {
+    "titulo": "Crazi Taxi",
+    "descricao": "O Jogo Original e Hist├│ria\r\n\r\nLan├ºamento inicial: Criado em 1999 para os arcades e lan├ºado em 2000 para o console Sega Dreamcast.\r\n\r\nJogabilidade louca: Sem regras de tr├ónsito, permitindo subir em cal├ºadas, usar atalhos e saltar rampas.\r\n\r\nTrilha sonora marcante: Famoso pelas m├║sicas de bandas de rock como The Offspring e Bad Religion.",
+    "preco": "0.00",
+    "gratuito": true,
+    "destaque": true,
+    "imagem": "",
+    "imagem_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRilPfspcBoC3kfjIWj8ojLvZ9iIV_qhkFyD8W5-EmzCQ&s=10",
+    "arquivo_instalacao": "",
+    "link_download": "https://drive.google.com/uc?export=download&id=1pOZSsnsp7IQVT4bG2zPastYrBqrDJIvJ",
+    "categoria": null,
+    "desenvolvedor": "Sega",
+    "ano_lancamento": 1999,
+    "avaliacao": "4.2",
+    "data_criacao": "2026-07-31T20:20:38.250Z",
+    "estoque": 0,
+    "estoque_minimo": 5
+  }
+},
+{
+  "model": "games.jogo",
+  "pk": 23,
+  "fields": {
+    "titulo": "Manhunt 2",
+    "descricao": "Hist├│ria e Enredo\r\n\r\nO jogo acompanha Daniel Lamb, um cientista e paciente psiqui├ítrico que sofre de amn├®sia ap├│s dar entrada em um asilo devido a um experimento que deu errado no misterioso Pickman Project.\r\n\r\nLeo Kasper, um assassino sociopata que o guia de volta ├á liberdade e o incentiva a cometer atos brutais de viol├¬ncia.\r\n\r\nAo longo da jornada, descobre-se uma reviravolta psicol├│gica profunda sobre a verdadeira identidade de Leo e os segredos do passado de Daniel.\r\n\r\nCausou enorme controv├®rsia internacional devido ao seu n├¡vel expl├¡cito de viol├¬ncia gr├ífica, sofrendo restri├º├Áes de venda, censuras e classifica├º├úo indicativa m├íxima (ou proibi├º├úo tempor├íria) em diversos pa├¡ses.",
+    "preco": "0.00",
+    "gratuito": true,
+    "destaque": false,
+    "imagem": "",
+    "imagem_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5g29KNJ7tCTYUh9PkRJmeK80UVxV44lT2qYD9Clpeiw&s=10",
+    "arquivo_instalacao": "",
+    "link_download": "https://drive.google.com/uc?export=download&id=16tC6CveDmp812tT__Hv7QAybQJUndhb8",
+    "categoria": null,
+    "desenvolvedor": "Rockstar North",
+    "ano_lancamento": 2007,
+    "avaliacao": "4.1",
+    "data_criacao": "2026-07-31T20:27:04.535Z",
+    "estoque": 0,
+    "estoque_minimo": 5
+  }
+},
+{
+  "model": "games.jogo",
+  "pk": 24,
+  "fields": {
+    "titulo": "Outlast",
+    "descricao": "Enredo e Personagem\r\n\r\nProtagonista: Miles Upshur, jornalista independente em busca de um furo jornal├¡stico.\r\n\r\nLocal: Mount Massive Asylum, nas montanhas do Colorado.\r\n\r\nConflito: Pacientes assassinos e uma entidade letal conhecida como o Morphogenic Engine (Wernicke e o Walrider).\r\n\r\nFerramenta: Uma c├ómera de v├¡deo equipada com vis├úo noturna, dependente de pilhas.",
+    "preco": "0.00",
+    "gratuito": true,
+    "destaque": false,
+    "imagem": "",
+    "imagem_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR780ghrRjZhyHtJ4oPB4clTr-Q3WSdpDm4f96awTK3Kw&s=10",
+    "arquivo_instalacao": "",
+    "link_download": "https://drive.google.com/uc?export=download&id=1YMo9JsSO-zvoddEKfTzbtjOz3hWVv2aQ",
+    "categoria": null,
+    "desenvolvedor": "Red Barrels",
+    "ano_lancamento": 2013,
+    "avaliacao": "4.7",
+    "data_criacao": "2026-07-31T20:31:55.604Z",
+    "estoque": 0,
+    "estoque_minimo": 5
+  }
+},
+{
+  "model": "games.jogo",
+  "pk": 25,
+  "fields": {
+    "titulo": "Rayman Legends",
+    "descricao": "Enredo e Mundo\r\n\r\nA Clareira dos Sonhos: Rayman, Globox e os Teensies dormem por um s├®culo, permitindo que os pesadelos do Bubble Dreamer se multipliquem.\r\n\r\n O grupo ├® sugado para dentro de pinturas vivas para resgatar os Teensies e as princesas guerreiras, como B├írbara.\r\n\r\nJogabilidade e Destaques\r\n\r\nMovimenta├º├úo fluida: Correr, pular, planar e golpear inimigos com comandos simples e precisos.\r\n\r\nFases Musicais: N├¡veis ic├┤nicos onde cada a├º├úo do jogador acontece exatamente no ritmo da trilha sonora.\r\n\r\nAjuda do Murfy: Personagem que interage com o cen├írio para cortar cordas, girar plataformas e derrotar inimigos.",
+    "preco": "0.00",
+    "gratuito": true,
+    "destaque": false,
+    "imagem": "",
+    "imagem_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZQYy2jciLkzRMqzzgLrsMvUl1lTz_-xIOaFU1JNoCGg&s=10",
+    "arquivo_instalacao": "",
+    "link_download": "https://drive.google.com/uc?export=download&id=1lAGZHSi8E7jTkwGxDkd5jB9ezBHwD1e_",
+    "categoria": null,
+    "desenvolvedor": "Ubisoft",
+    "ano_lancamento": 2013,
+    "avaliacao": "4.6",
+    "data_criacao": "2026-07-31T20:36:36.037Z",
+    "estoque": 0,
+    "estoque_minimo": 5
+  }
+}
 ]
